@@ -183,6 +183,33 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
         window.append((ts, row["is_failure"]))
     df["failed_auth_count_entity_24h"] = failed_count_entity_24h
 
+    # --- Breadth / accumulation features -------------------------------------
+    # Adding benign resource novelty to the generator (an employee covering for
+    # a colleague) collapsed lateral-movement precision to 0.41: a single novel
+    # resource is no longer evidence of anything. The discriminating property is
+    # BREADTH IN A SHORT WINDOW -- lateral movement touches 5-10 never-seen
+    # resources in under an hour, a colleague hand-off touches one. Likewise,
+    # low-and-slow exfiltration is defined by ACCUMULATION over days, not by any
+    # single off-hours access. Both windows are trailing, so both stay causal.
+    novel_res_1h, offhours_7d = [], []
+    novel_win, offhours_win = {}, {}
+    for ts, eid, novel, hod in zip(df["timestamp"], df["entity_id"],
+                                   df["is_new_resource_for_entity"],
+                                   df["hour_of_day"]):
+        offh = (hod < 6) or (hod > 22)
+        nw = novel_win.setdefault(eid, [])
+        ow = offhours_win.setdefault(eid, [])
+        nw[:] = [t for t in nw if t >= ts - pd.Timedelta(hours=1)]
+        ow[:] = [t for t in ow if t >= ts - pd.Timedelta(days=7)]
+        novel_res_1h.append(len(nw))
+        offhours_7d.append(len(ow))
+        if novel:
+            nw.append(ts)
+        if offh:
+            ow.append(ts)
+    df["novel_resources_entity_1h"] = novel_res_1h
+    df["offhours_access_count_entity_7d"] = offhours_7d
+
     df["is_off_hours"] = df["hour_of_day"].apply(lambda h: 1 if (h < 6 or h > 22) else 0)
     PRIVILEGED_RESOURCES = {
         "db_prod_customers", "db_prod_orders", "admin_panel_iam",
@@ -233,7 +260,8 @@ FEATURE_COLUMNS = [
     "duration_zscore", "is_cold_start_entity", "entity_session_seq_num",
     "distinct_entities_per_ip_1h", "failed_auth_count_ip_1h", "failed_auth_count_entity_24h",
     "is_off_hours", "is_privileged_resource", "command_seq_length", "is_failure",
-    "resource_seq_surprise",
+    "resource_seq_surprise", "novel_resources_entity_1h",
+    "offhours_access_count_entity_7d",
     # graph-based entity-resource relationship features (models/graph_model.py)
     "graph_edge_weight", "resource_popularity", "peer_affinity",
     "two_hop_reachable", "graph_anomaly_score",
