@@ -111,6 +111,63 @@ OS_FINGERPRINTS = ["Windows11-x64", "macOS-14", "Ubuntu-22.04",
                    "iOS-18", "Android-15", "RTOS-edge-fw2.3"]
 PROTOCOLS = ["TLSv1.3", "TLSv1.2", "SSHv2", "MQTTv5", "HTTPS"]
 
+# ----------------------------------------------------------------------------
+# BENIGN CONFUSABILITY
+# ----------------------------------------------------------------------------
+# An earlier revision of this generator made every attack trivially separable,
+# because the benign baseline never produced the signals the attacks were
+# defined by. Three oracles existed, each measured at 100% label purity:
+#
+#   auth_result == "failure"              -> 100% anomaly (62% of all anomalies)
+#   distinct_entities_per_ip_1h >= 5      -> 100% anomaly (19% of all anomalies)
+#   geo_city != home_city                 -> anomaly by construction
+#
+# A two-line rule therefore filled the entire top-1% analyst alert budget with
+# guaranteed true positives, and the reported "0 false positives" measured the
+# simulator rather than the detector. The constants below inject the benign
+# versions of each attack signal, so the detector must learn a THRESHOLD
+# (how many failures, how much IP fan-out, how fast the implied travel)
+# instead of a boolean.
+#
+# Each behaviour below is drawn from a real-world equivalent, not tuned to
+# make the numbers move.
+
+# 1. Password typos / expired certs. Real orgs run 2-8% benign auth failure.
+#    Benign failures arrive in small bursts from a KNOWN device, which is what
+#    separates them from a 15-60 attempt burst from an unknown one.
+BENIGN_FAIL_RATE = {"user": (0.02, 0.06), "service_account": (0.002, 0.010),
+                    "edge_device": (0.005, 0.020)}
+BENIGN_FAIL_BURST = (1, 3)          # failures immediately before a success
+
+# 2. Shared office egress IPs. Previously every benign session drew a fresh
+#    random public IP, so ANY IP fan-out meant credential stuffing. Real
+#    corporate traffic NATs hundreds of users behind one egress address.
+OFFICE_IP_SHARE = 0.65              # share of on-site sessions using office IP
+
+# 3. Second devices (personal phone, loaner laptop) and mid-timeline hardware
+#    refresh outside the drift cohort, so "new device" is not proof of spoofing.
+OCCASIONAL_DEVICE_RATE = 0.05
+P_DEVICE_REFRESH = 0.15             # share of baseline entities issued new kit
+
+# 4. Legitimate scope change: covering for a colleague, project rotation.
+OCCASIONAL_RESOURCE_RATE = 0.03
+P_RESOURCE_BECOMES_PERMANENT = 0.30
+
+# 5. Genuine business travel, respecting commercial flight speed. Outbound and
+#    return days carry no sessions (the entity is in transit), which guarantees
+#    a >=24h gap and therefore an implied velocity below 900 km/h for every
+#    city pair in CITIES. Impossible-travel attacks remain the only sub-flight
+#    -time relocations.
+P_TRAVELLER = 0.18                  # share of users who travel at all
+TRIP_DAYS = (2, 5)
+
+
+def _office_ips():
+    return {city[0]: fake.ipv4_public() for city in CITIES}
+
+
+OFFICE_IPS = _office_ips()
+
 
 def random_mac():
     return ":".join(f"{random.randint(0, 255):02X}" for _ in range(6))
@@ -157,6 +214,17 @@ class EntityProfile:
         self.drift_hour_shift = 0.0
         self.drift_new_device = None
 
+        # --- benign confusability state (see BENIGN CONFUSABILITY above) ---
+        lo, hi = BENIGN_FAIL_RATE[entity_type]
+        self.auth_failure_rate = np.random.uniform(lo, hi)
+        self.office_ip = OFFICE_IPS[self.home_city[0]]
+        self.residential_ip = fake.ipv4_public()   # stable home broadband / DC NIC
+        self.occasional_devices = [make_fingerprint()
+                                   for _ in range(random.randint(0, 2))]
+        self.device_refresh_day = None             # legitimate hardware swap
+        self.device_refresh_fp = None
+        self.travel_trips = []                     # (start_day, duration, city)
+
         if entity_type == "user":
             self.login_hour_mean = np.random.normal(13, 3) % 24  # roughly work hours (UTC-ish)
             self.login_hour_std = np.random.uniform(1.5, 3.0)
@@ -186,6 +254,14 @@ class EntityProfile:
             self.known_devices = [make_fingerprint(random.choice(OS_FINGERPRINTS[-2:]))]
             self.session_duration_mean = np.random.uniform(1, 5)
             self.sessions_per_day = np.random.uniform(10, 40)
+
+        # Resources this entity may legitimately touch once in a while
+        # (covering a colleague, project rotation) but that are not part of its
+        # habitual set. Without these, "resource never seen before" is proof of
+        # lateral movement rather than evidence for it.
+        outside = [r for r in RESOURCE_POOL if r not in self.resources]
+        self.occasional_resources = set(
+            random.sample(outside, k=min(random.randint(2, 5), len(outside))))
 
 
 LATE_JOIN_DAY = 47        # inside the final 25% of the timeline (test window)
@@ -223,7 +299,79 @@ def build_entities():
         p.drift_day = random.randint(30, 44)
         p.drift_hour_shift = random.choice([-5, -4, -3, 3, 4, 5])
         p.drift_new_device = make_fingerprint()  # newly issued laptop
+
+    # --- BENIGN TRAVEL: real trips that respect commercial flight speed ---
+    # Outbound and return days are left empty (entity in transit), so the gap
+    # either side of a trip is always >= 24h. At 900 km/h that covers 21,600 km
+    # -- further than any pair of cities in CITIES -- so no legitimate trip can
+    # ever imply impossible travel. Attacks remain the only sub-flight-time hops.
+    for p in entities:
+        if p.entity_type != "user" or random.random() > P_TRAVELLER:
+            continue
+        n_trips = random.randint(1, 2)
+        for _ in range(n_trips):
+            dur = random.randint(*TRIP_DAYS)
+            latest = SIM_DAYS - dur - 3
+            if latest <= p.join_day + 2:
+                continue
+            start = random.randint(p.join_day + 2, latest)
+            city = random.choice([c for c in CITIES if c[0] != p.home_city[0]])
+            p.travel_trips.append((start, dur, city))
+
+    # --- BENIGN HARDWARE REFRESH outside the drift cohort ---
+    for p in entities:
+        if p.cohort == "baseline" and random.random() < P_DEVICE_REFRESH:
+            p.device_refresh_day = random.randint(10, SIM_DAYS - 5)
+            p.device_refresh_fp = make_fingerprint()
+
     return entities
+
+
+def travel_state(profile, day):
+    """('home', None) | ('transit', None) | ('away', city) for a given day."""
+    for start, dur, city in profile.travel_trips:
+        if day == start or day == start + dur + 1:
+            return "transit", None
+        if start < day <= start + dur:
+            return "away", city
+    return "home", None
+
+
+def pick_source_ip(profile, on_site):
+    """Shared office egress IP vs. stable residential/DC address.
+
+    Benign IP fan-out is the whole point: many entities behind one office IP
+    means 'many accounts from one source' cannot by itself mean credential
+    stuffing.
+    """
+    if on_site and random.random() < OFFICE_IP_SHARE:
+        return profile.office_ip
+    return profile.residential_ip
+
+
+def pick_device(profile, day):
+    """Habitual device, with legitimate refreshes and occasional second devices."""
+    drifted = profile.drift_day is not None and day >= profile.drift_day
+    if drifted and profile.drift_new_device and random.random() < 0.7:
+        return profile.drift_new_device
+    if (profile.device_refresh_day is not None
+            and day >= profile.device_refresh_day
+            and random.random() < 0.8):
+        return profile.device_refresh_fp
+    if profile.occasional_devices and random.random() < OCCASIONAL_DEVICE_RATE:
+        return random.choice(profile.occasional_devices)
+    return random.choice(profile.known_devices)
+
+
+def pick_resource(profile):
+    """Habitual resource, with occasional legitimate scope expansion."""
+    if profile.occasional_resources and random.random() < OCCASIONAL_RESOURCE_RATE:
+        r = random.choice(sorted(profile.occasional_resources))
+        if random.random() < P_RESOURCE_BECOMES_PERMANENT:
+            profile.resources.add(r)          # permanent, legitimate expansion
+            profile.occasional_resources.discard(r)
+        return r
+    return random.choice(sorted(profile.resources))
 
 
 # ----------------------------------------------------------------------------
@@ -247,39 +395,67 @@ def generate_normal_sessions(profile):
         weekday = (SIM_START + timedelta(days=day)).weekday()
         # --- benign CONCEPT DRIFT: legitimate behaviour permanently evolves ---
         drifted = profile.drift_day is not None and day >= profile.drift_day
+
+        # --- benign TRAVEL: in transit means no sessions at all that day ---
+        state, trip_city = travel_state(profile, day)
+        if state == "transit":
+            continue
+        on_site = state == "home"
+        city = profile.home_city if on_site else trip_city
+
         if profile.entity_type == "user" and weekday not in profile.active_days:
-            if random.random() > 0.05:  # 5% chance of rare weekend work
+            # travelling users work through the weekend more often
+            skip_p = 0.05 if on_site else 0.40
+            if random.random() > skip_p:
                 continue
         n_sessions_today = np.random.poisson(profile.sessions_per_day)
         for _ in range(max(0, n_sessions_today)):
             ts = sample_normal_timestamp(profile, day)
             if drifted and profile.drift_hour_shift:
                 ts = ts + timedelta(hours=float(profile.drift_hour_shift))
-            resource = random.choice(list(profile.resources))
+            resource = pick_resource(profile)
+            device = pick_device(profile, day)
+            src_ip = pick_source_ip(profile, on_site)
             cmd_seq = []
             if resource in PRIVILEGED_RESOURCES:
                 cmd_seq = random.sample(PRIVILEGED_ACTIONS, k=random.randint(1, 2))
-            rows.append({
-                "session_id": str(uuid.uuid4())[:12],
-                "entity_id": profile.entity_id,
-                "entity_type": profile.entity_type,
-                "timestamp": ts,
-                "source_ip": fake.ipv4_public(),
-                "geo_city": profile.home_city[0],
-                "geo_lat": profile.home_city[2],
-                "geo_lon": profile.home_city[3],
-                "resource_accessed": resource,
-                "auth_method": profile.auth_method,
-                "auth_result": "success",
-                "session_duration": max(0.5, np.random.normal(profile.session_duration_mean, profile.session_duration_mean * 0.3)),
-                "command_sequence": ";".join(cmd_seq),
-                "device_fingerprint": (profile.drift_new_device
-                                       if (drifted and profile.drift_new_device
-                                           and random.random() < 0.7)
-                                       else random.choice(profile.known_devices)),
-                "label": "normal",
-                "cohort": profile.cohort,
-            })
+
+            def _row(timestamp, auth_result, duration, session_cmds):
+                return {
+                    "session_id": str(uuid.uuid4())[:12],
+                    "entity_id": profile.entity_id,
+                    "entity_type": profile.entity_type,
+                    "timestamp": timestamp,
+                    "source_ip": src_ip,
+                    "geo_city": city[0],
+                    "geo_lat": city[2],
+                    "geo_lon": city[3],
+                    "resource_accessed": resource,
+                    "auth_method": profile.auth_method,
+                    "auth_result": auth_result,
+                    "session_duration": duration,
+                    "command_sequence": ";".join(session_cmds),
+                    "device_fingerprint": device,
+                    "label": "normal",
+                    "cohort": profile.cohort,
+                }
+
+            # --- benign AUTH FAILURES: password typo / expired cert, from the
+            # entity's OWN device and IP, in a burst of 1-3 before succeeding.
+            # Attackers produce 15-60 from an unknown device, so the model must
+            # learn a threshold on failure COUNT rather than on failure itself.
+            if random.random() < profile.auth_failure_rate:
+                n_fail = random.randint(*BENIGN_FAIL_BURST)
+                for k in range(n_fail, 0, -1):
+                    rows.append(_row(
+                        ts - timedelta(seconds=k * random.randint(4, 25)),
+                        "failure", round(random.uniform(0.05, 0.3), 3), []))
+
+            rows.append(_row(
+                ts, "success",
+                max(0.5, np.random.normal(profile.session_duration_mean,
+                                          profile.session_duration_mean * 0.3)),
+                cmd_seq))
     return rows
 
 
