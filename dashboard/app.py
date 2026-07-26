@@ -29,17 +29,101 @@ def load_data():
 
 alerts, full_log = load_data()
 
+# ---------------------------------------------------------------------------
+# ANALYST TRIAGE STATE
+# ---------------------------------------------------------------------------
+# Analyst verdicts are the only ground truth available in production. They are
+# held in session_state and mirrored to disk so a verdict survives a page
+# reload (and so the feedback can be consumed by a retraining job).
+TRIAGE_PATH = os.path.join(REPORTS_DIR, "triage_feedback.json")
+
+
+def load_triage():
+    try:
+        with open(TRIAGE_PATH) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def save_triage(state):
+    with open(TRIAGE_PATH, "w") as f:
+        json.dump(state, f, indent=2)
+
+
+if "triage" not in st.session_state:
+    st.session_state.triage = load_triage()
+
+
+def set_verdict(session_id, verdict, entity_id, predicted_label):
+    st.session_state.triage[session_id] = {
+        "verdict": verdict,
+        "entity_id": entity_id,
+        "predicted_label": predicted_label,
+        "reviewed_at": pd.Timestamp.now("UTC").isoformat(timespec="seconds"),
+    }
+    save_triage(st.session_state.triage)
+
+
+def clear_verdict(session_id):
+    st.session_state.triage.pop(session_id, None)
+    save_triage(st.session_state.triage)
+
+
+triage = st.session_state.triage
+# Entities the analyst has explicitly cleared -> benign-drift allowlist.
+allowlisted_entities = {
+    v["entity_id"] for v in triage.values() if v["verdict"] == "false_positive"
+}
+
+# ---------------------------------------------------------------------------
+# VIEW MODE
+# ---------------------------------------------------------------------------
+with st.sidebar:
+    st.header("View mode")
+    show_truth = st.toggle(
+        "Ground-truth overlay",
+        value=False,
+        help="Evaluation aid only. The problem statement hides the label at "
+             "inference, so a production console cannot show it. Leave this "
+             "off for the analyst view; switch it on to score the model.",
+    )
+    if show_truth:
+        st.warning(
+            "**Evaluation mode.** Labels shown below come from the synthetic "
+            "generator's held-out ground truth. This overlay does not exist "
+            "in production."
+        )
+    else:
+        st.success("**Production view.** No ground-truth labels in use.")
+    st.divider()
+    st.caption(f"Analyst verdicts recorded: **{len(triage)}**")
+    if triage and st.button("Reset all verdicts", use_container_width=True):
+        st.session_state.triage = {}
+        save_triage({})
+        st.rerun()
+
 st.title("🛡️ Behavioral Anomaly Detection — Analyst Console")
 st.caption("Ranked alert queue with explainable risk scores, entity history, and cold-start / drift awareness")
 
-# ---- Top-line KPIs ----
+# ---- Top-line KPIs (production view: driven by analyst verdicts, not labels) ----
+n_confirmed = sum(1 for v in triage.values() if v["verdict"] == "confirmed")
+n_dismissed = sum(1 for v in triage.values() if v["verdict"] == "false_positive")
+n_open = len(alerts) - len([s for s in triage if s in set(alerts["session_id"])])
+
 col1, col2, col3, col4 = st.columns(4)
-n_true_anomalies = (alerts["label"] != "normal").sum()
-precision_top = (alerts["label"] != "normal").mean()
 col1.metric("Alerts in queue", len(alerts))
-col2.metric("True anomalies in top alerts", int(n_true_anomalies))
-col3.metric("Precision (top alerts)", f"{precision_top:.0%}")
+col2.metric("Awaiting triage", n_open)
+col3.metric("Confirmed incidents", n_confirmed, help="Analyst-accepted alerts")
 col4.metric("Entities monitored", full_log["entity_id"].nunique())
+
+if show_truth:
+    precision_top = (alerts["label"] != "normal").mean()
+    st.info(
+        f"**Ground-truth overlay** — {int((alerts['label'] != 'normal').sum())} "
+        f"of {len(alerts)} queued alerts are true anomalies "
+        f"(precision {precision_top:.1%}). Evaluation metric, not a console feature."
+    )
 
 st.divider()
 
@@ -50,30 +134,109 @@ tab1, tab2, tab3, tab4 = st.tabs([
 # ---------------------------------------------------------------------------
 with tab1:
     st.subheader("Ranked Alert Queue")
-    attack_types = st.multiselect(
-        "Filter by predicted anomaly type",
-        options=sorted(alerts["predicted_label"].unique()),
-        default=[t for t in alerts["predicted_label"].unique() if t != "normal"],
-    )
+
+    f1, f2 = st.columns([3, 1])
+    with f1:
+        attack_types = st.multiselect(
+            "Filter by predicted anomaly type",
+            options=sorted(alerts["predicted_label"].unique()),
+            default=[t for t in alerts["predicted_label"].unique() if t != "normal"],
+        )
+    with f2:
+        status = st.selectbox(
+            "Triage status",
+            ["Awaiting triage", "Confirmed", "Dismissed", "All"],
+        )
+
     filtered = alerts[alerts["predicted_label"].isin(attack_types)] if attack_types else alerts
+    verdict_of = filtered["session_id"].map(lambda s: triage.get(s, {}).get("verdict"))
+    if status == "Awaiting triage":
+        filtered = filtered[verdict_of.isna()]
+    elif status == "Confirmed":
+        filtered = filtered[verdict_of == "confirmed"]
+    elif status == "Dismissed":
+        filtered = filtered[verdict_of == "false_positive"]
     filtered = filtered.sort_values("anomaly_score", ascending=False)
 
+    if n_dismissed:
+        st.caption(
+            f"🔁 **Feedback loop active** — {n_dismissed} dismissed alert(s) have "
+            f"added {len(allowlisted_entities)} entit(y/ies) to the benign-drift "
+            f"allowlist. Their remaining queued alerts are down-ranked below."
+        )
+
+    if filtered.empty:
+        st.success("Nothing in this view. Queue clear.")
+
     for _, row in filtered.head(25).iterrows():
-        is_true_positive = row["label"] != "normal"
-        badge = "🔴" if is_true_positive else "⚪"
+        sid = row["session_id"]
+        verdict = triage.get(sid, {}).get("verdict")
+        allowlisted = row["entity_id"] in allowlisted_entities and verdict is None
+
+        title = row["predicted_label"].replace("anomaly_", "").replace("_", " ").title()
+        status_chip = {
+            "confirmed": "✅ **Confirmed incident**",
+            "false_positive": "❌ **Dismissed — false positive**",
+        }.get(verdict, "🕓 Awaiting triage")
+
         with st.container(border=True):
             c1, c2 = st.columns([3, 1])
             with c1:
+                # Ground truth is an evaluation overlay only -- never rendered in
+                # the production view, because the label is hidden at inference.
+                prefix = ""
+                if show_truth:
+                    prefix = "🔴 " if row["label"] != "normal" else "⚪ "
                 st.markdown(
-                    f"{badge} **{row['predicted_label'].replace('anomaly_', '').replace('_', ' ').title()}** "
-                    f"— `{row['entity_id']}` ({row['entity_type']}) at {row['timestamp']}"
+                    f"{prefix}**{title}** — `{row['entity_id']}` "
+                    f"({row['entity_type']}) at {row['timestamp']}"
                 )
+                if show_truth:
+                    st.caption(f"⚙️ ground truth (eval only): `{row['label']}`")
                 st.caption(row["rationale"])
+                st.markdown(status_chip)
+                if allowlisted:
+                    st.caption(
+                        "⬇️ Down-ranked: this entity was previously cleared by an "
+                        "analyst, so its novelty signals are treated as benign drift."
+                    )
             with c2:
                 st.metric("Risk score", f"{row['anomaly_score']:.2f}")
-                b1, b2 = st.columns(2)
-                b1.button("✅ Accept", key=f"accept_{row['session_id']}")
-                b2.button("❌ Reject", key=f"reject_{row['session_id']}")
+                if verdict is None:
+                    b1, b2 = st.columns(2)
+                    b1.button(
+                        "✅ Accept", key=f"accept_{sid}", use_container_width=True,
+                        on_click=set_verdict,
+                        args=(sid, "confirmed", row["entity_id"], row["predicted_label"]),
+                    )
+                    b2.button(
+                        "❌ Reject", key=f"reject_{sid}", use_container_width=True,
+                        on_click=set_verdict,
+                        args=(sid, "false_positive", row["entity_id"], row["predicted_label"]),
+                    )
+                else:
+                    st.button(
+                        "↩️ Undo", key=f"undo_{sid}", use_container_width=True,
+                        on_click=clear_verdict, args=(sid,),
+                    )
+
+    # ---- What the feedback is for ----
+    if triage:
+        with st.expander(f"Analyst feedback log ({len(triage)} verdicts) — retraining input"):
+            fb = pd.DataFrame.from_dict(triage, orient="index").reset_index(names="session_id")
+            st.dataframe(fb, hide_index=True, use_container_width=True)
+            st.caption(
+                "Written to `reports/triage_feedback.json`. Confirmed incidents become "
+                "positive training examples; dismissals become negatives and allowlist "
+                "the entity's current behavioural baseline, which is how a real SOC "
+                "stops re-alerting on legitimate change."
+            )
+            st.download_button(
+                "Download feedback (JSON)",
+                data=json.dumps(triage, indent=2),
+                file_name="triage_feedback.json",
+                mime="application/json",
+            )
 
 # ---------------------------------------------------------------------------
 with tab2:
