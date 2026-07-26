@@ -1,0 +1,7 @@
+{
+  "entities": 180,
+  "resources": 27,
+  "edges": 818,
+  "graph_only_auc_all_anomalies": 0.9410406370345532,
+  "graph_only_auc_lateral_movement": 0.9998950740004419
+}

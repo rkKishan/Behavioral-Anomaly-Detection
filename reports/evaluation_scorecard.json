@@ -1,0 +1,102 @@
+{
+  "1_detection_accuracy_imbalanced": {
+    "anomaly_prevalence": 0.0200302343159486,
+    "imbalance_ratio": "1:48",
+    "pr_auc_average_precision": 0.9994549765266586,
+    "pr_auc_baseline_random": 0.0200302343159486,
+    "roc_auc": 0.9999890110232801,
+    "note": "PR-AUC is reported because accuracy is uninformative at this prevalence: always predicting 'normal' would score ~98%."
+  },
+  "2_anomaly_type_classification": {
+    "overall_correct_type_given_detected": 0.9838274932614556,
+    "macro_f1_all_classes": 0.9642525937273749,
+    "per_class": {
+      "anomaly_brute_force": {
+        "support": 164,
+        "correct_type_rate": 0.9939024390243902
+      },
+      "anomaly_credential_stuffing": {
+        "support": 72,
+        "correct_type_rate": 0.9861111111111112
+      },
+      "anomaly_device_spoofing": {
+        "support": 19,
+        "correct_type_rate": 0.9473684210526315
+      },
+      "anomaly_impossible_travel": {
+        "support": 16,
+        "correct_type_rate": 0.8125
+      },
+      "anomaly_lateral_movement": {
+        "support": 29,
+        "correct_type_rate": 1.0
+      },
+      "anomaly_low_and_slow_exfil": {
+        "support": 71,
+        "correct_type_rate": 1.0
+      }
+    }
+  },
+  "3_false_positives_at_alert_budget": {
+    "budget_fraction_of_events": 0.01,
+    "alerts_issued": 185,
+    "true_positives": 185,
+    "false_positives": 0,
+    "precision_at_budget": 1.0,
+    "false_positive_rate_vs_all_benign": 0.0,
+    "recall_at_budget": 0.49865229110512127,
+    "analyst_workload_alerts_per_day": 14.23076923076923,
+    "false_alarms_per_day": 0.0
+  },
+  "4_explainability_usability": {
+    "alerts_with_rationale": 500,
+    "pct_alerts_with_rationale": 1.0,
+    "rationale_names_specific_features": true,
+    "dashboard_views": [
+      "ranked alert queue",
+      "risk score",
+      "contributing factors",
+      "entity history",
+      "robustness (cold-start & drift)"
+    ],
+    "example_rationale": "Flagged due to: distinct accounts from same source IP (1h) (8.0 accounts, SHAP +2.99); unrecognized device fingerprint (SHAP +1.56); deviation from entity's typical session length "
+  },
+  "5_cold_start_and_drift": {
+    "cold_start_false_positive_rate": 0.0,
+    "cold_start_entities": 20,
+    "cold_start_benign_sessions": 2576,
+    "drift_false_positive_rate": 0.0,
+    "drift_entities": 18,
+    "drift_post_change_sessions": 460,
+    "profile_adaptation_evidence": {
+      "post_drift_hour_deviation_z": 0.7024463022123659,
+      "unchanged_entities_hour_deviation_z": 0.8898587628817317
+    }
+  },
+  "6_scalability_streaming": {
+    "single_event_latency_ms": 3.721922993999982,
+    "single_threaded_events_per_sec": 268.6783153794624,
+    "batched_events_per_sec": 51541.69252783288,
+    "feature_computation": "causal/stateful -> portable to Kafka + per-entity state store",
+    "honest_note": "Per-event latency suits real-time scoring. Sustained high-volume ingest would use micro-batching (measured above) and horizontal partitioning by entity_id, since all per-entity state is independent."
+  },
+  "7_report_clarity": {
+    "sections": [
+      "0. Quick Start",
+      "1. System Architecture",
+      "2. Synthetic Data Generation \u2014 Assumptions",
+      "2b. Schema Fidelity & Data-Integrity Audit",
+      "2c. Behaviour-Simulation Audit (spec's 8 patterns)",
+      "3. Feature Engineering \u2014 Causal, Leakage-Free",
+      "3b. Graph-Based Detection Model (Deliverable #3)",
+      "4. Detection Model",
+      "5. Explainability",
+      "5b. Evaluation Criteria Scorecard",
+      "6. Known Limitations (honest self-assessment)",
+      "7. Next Steps / Stretch Goals"
+    ],
+    "documents_limitations": true,
+    "documents_assumptions": true,
+    "word_count": 2256
+  }
+}

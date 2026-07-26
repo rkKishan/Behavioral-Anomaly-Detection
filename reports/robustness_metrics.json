@@ -1,0 +1,26 @@
+{
+  "cold_start": {
+    "new_entities": 20,
+    "benign_sessions_from_new_entities": 2576,
+    "false_positive_rate": 0.0,
+    "false_alerts": 0
+  },
+  "concept_drift": {
+    "drifted_entities": 18,
+    "post_drift_benign_sessions": 460,
+    "false_positive_rate": 0.0,
+    "false_alerts": 0,
+    "mean_hour_deviation_zscore_after_drift": 0.7024463022123659,
+    "mean_hour_deviation_zscore_baseline_cohort": 0.8898587628817317
+  },
+  "insider_drift_edge_case": {
+    "sessions": 1,
+    "flag_rate_at_1pct_budget": 0.0,
+    "note": "Ambiguous by design. A low-but-nonzero flag rate is the desired behaviour: surfaced for review, not auto-blocked."
+  },
+  "alert_budget_context": {
+    "budget": 0.01,
+    "alerts_issued": 185,
+    "true_anomalies_in_test": 371
+  }
+}

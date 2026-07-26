@@ -1,0 +1,6 @@
+{
+  "statistical_profile_auc": 0.9972327482276725,
+  "isolation_forest_auc": 0.9765869020154685,
+  "cold_start_sessions_in_test": 2576,
+  "entities_profiled": 180
+}

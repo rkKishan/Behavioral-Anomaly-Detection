@@ -1,0 +1,9 @@
+[
+ "anomaly_brute_force",
+ "anomaly_credential_stuffing",
+ "anomaly_device_spoofing",
+ "anomaly_impossible_travel",
+ "anomaly_lateral_movement",
+ "anomaly_low_and_slow_exfil",
+ "normal"
+]

@@ -1,0 +1,3097 @@
+{
+ "profiles": {
+  "edge_000": {
+   "cold_start": false,
+   "hour_mean": 11.947620599739246,
+   "hour_std": 6.927585341985077,
+   "dur_mean": 3.7711773504877324,
+   "dur_std": 1.1592472500392632,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:8C:BC:ED:CB:3F:0F|TLSv1.2"
+   ]
+  },
+  "edge_001": {
+   "cold_start": false,
+   "hour_mean": 12.218079922027291,
+   "hour_std": 6.969277863271429,
+   "dur_mean": 2.8476178242010715,
+   "dur_std": 0.8485220060657379,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:E4:5A:F2:B3:B0:53|SSHv2"
+   ]
+  },
+  "edge_002": {
+   "cold_start": false,
+   "hour_mean": 11.827968036529679,
+   "hour_std": 6.745482979926754,
+   "dur_mean": 4.066700041893105,
+   "dur_std": 1.1966482822455613,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:91:0E:C5:19:53:6D|TLSv1.2"
+   ]
+  },
+  "edge_003": {
+   "cold_start": false,
+   "hour_mean": 11.819106002554278,
+   "hour_std": 6.958308827779896,
+   "dur_mean": 1.180342490022613,
+   "dur_std": 0.5,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:69:89:D1:0A:04:F2|TLSv1.2"
+   ]
+  },
+  "edge_004": {
+   "cold_start": false,
+   "hour_mean": 11.963101725703904,
+   "hour_std": 6.93510542192577,
+   "dur_mean": 2.3863755866955105,
+   "dur_std": 0.7205369251180058,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:04:72:81:9C:8C:D8|MQTTv5"
+   ]
+  },
+  "edge_005": {
+   "cold_start": false,
+   "hour_mean": 11.84362527716186,
+   "hour_std": 6.9856174815107845,
+   "dur_mean": 3.2771369816769544,
+   "dur_std": 1.0142502381100125,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:EB:81:6F:EE:9A:CB|HTTPS"
+   ]
+  },
+  "edge_006": {
+   "cold_start": false,
+   "hour_mean": 11.925804493017607,
+   "hour_std": 6.833051738083848,
+   "dur_mean": 3.1342567211394172,
+   "dur_std": 0.9304238233808769,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:BF:90:98:37:F6:20|SSHv2"
+   ]
+  },
+  "edge_007": {
+   "cold_start": false,
+   "hour_mean": 12.144068857589984,
+   "hour_std": 6.939850028071908,
+   "dur_mean": 3.376044106971387,
+   "dur_std": 1.017502906400331,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:8D:85:98:60:4C:7B|TLSv1.3"
+   ]
+  },
+  "edge_008": {
+   "cold_start": false,
+   "hour_mean": 11.948812785388128,
+   "hour_std": 6.940733831589879,
+   "dur_mean": 3.777926639212976,
+   "dur_std": 1.1886175788702564,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:A3:47:0D:FE:97:84|MQTTv5"
+   ]
+  },
+  "edge_009": {
+   "cold_start": false,
+   "hour_mean": 12.040067829457364,
+   "hour_std": 6.910007730734066,
+   "dur_mean": 3.8216723745519228,
+   "dur_std": 1.1401973076964458,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:12:61:AF:71:F3:B7|HTTPS"
+   ]
+  },
+  "edge_010": {
+   "cold_start": false,
+   "hour_mean": 11.763934651290501,
+   "hour_std": 6.916125641917053,
+   "dur_mean": 4.50487914606972,
+   "dur_std": 1.367911349714589,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:5C:96:31:F1:41:84|HTTPS"
+   ]
+  },
+  "edge_011": {
+   "cold_start": false,
+   "hour_mean": 12.176466049382714,
+   "hour_std": 6.911505307380382,
+   "dur_mean": 4.877751109832693,
+   "dur_std": 1.542846210333406,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:AB:2D:71:B5:72:9D|MQTTv5"
+   ]
+  },
+  "edge_012": {
+   "cold_start": false,
+   "hour_mean": 12.064250269687165,
+   "hour_std": 6.852480513783759,
+   "dur_mean": 1.887049117526299,
+   "dur_std": 0.5646043853530113,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:BE:85:96:ED:3C:F0|TLSv1.3"
+   ]
+  },
+  "edge_013": {
+   "cold_start": false,
+   "hour_mean": 11.552089756766017,
+   "hour_std": 6.9566208209277125,
+   "dur_mean": 2.3573641421785925,
+   "dur_std": 0.7108761776631101,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:F1:63:3D:C3:98:D3|TLSv1.3"
+   ]
+  },
+  "edge_014": {
+   "cold_start": false,
+   "hour_mean": 12.03865557316429,
+   "hour_std": 6.903139866013551,
+   "dur_mean": 1.133242682079634,
+   "dur_std": 0.5,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:46:66:AF:D1:EA:49|SSHv2"
+   ]
+  },
+  "edge_015": {
+   "cold_start": false,
+   "hour_mean": 12.076458546571137,
+   "hour_std": 6.8529709324493,
+   "dur_mean": 3.160106169909619,
+   "dur_std": 0.9597661328931494,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:29:F9:AA:5A:A0:1D|TLSv1.3"
+   ]
+  },
+  "edge_016": {
+   "cold_start": false,
+   "hour_mean": 11.720146520146521,
+   "hour_std": 7.013656167053755,
+   "dur_mean": 4.647189403911847,
+   "dur_std": 1.3846928184142342,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:6B:56:51:FA:2D:42|HTTPS"
+   ]
+  },
+  "edge_017": {
+   "cold_start": false,
+   "hour_mean": 12.5086917562724,
+   "hour_std": 6.769567757461316,
+   "dur_mean": 2.315229226014913,
+   "dur_std": 0.7019463971168454,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:CE:DB:F4:C4:02:13|HTTPS"
+   ]
+  },
+  "edge_018": {
+   "cold_start": false,
+   "hour_mean": 11.947161888213149,
+   "hour_std": 7.049288356582705,
+   "dur_mean": 1.392281375765011,
+   "dur_std": 0.5,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:07:A4:61:09:02:7F|TLSv1.2"
+   ]
+  },
+  "edge_019": {
+   "cold_start": false,
+   "hour_mean": 11.766582562377348,
+   "hour_std": 6.86719645159361,
+   "dur_mean": 3.708796150230784,
+   "dur_std": 1.1040753321324432,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:9F:42:34:C4:9C:55|TLSv1.3"
+   ]
+  },
+  "edge_020": {
+   "cold_start": false,
+   "hour_mean": 11.843113367174281,
+   "hour_std": 6.987470050024175,
+   "dur_mean": 1.6130518451865266,
+   "dur_std": 0.5,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:98:94:E9:AC:DE:44|SSHv2"
+   ]
+  },
+  "edge_021": {
+   "cold_start": false,
+   "hour_mean": 11.678852621167163,
+   "hour_std": 6.802644589585744,
+   "dur_mean": 1.0166147814147806,
+   "dur_std": 0.5,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:60:54:CE:09:74:72|TLSv1.2"
+   ]
+  },
+  "edge_022": {
+   "cold_start": false,
+   "hour_mean": 11.574215021351419,
+   "hour_std": 6.799603056611947,
+   "dur_mean": 1.3438010770258955,
+   "dur_std": 0.5,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:56:3F:BB:13:C0:82|HTTPS"
+   ]
+  },
+  "edge_023": {
+   "cold_start": false,
+   "hour_mean": 12.293696397941682,
+   "hour_std": 6.8920214735633,
+   "dur_mean": 4.918153218402537,
+   "dur_std": 1.5313397781663631,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:18:37:0A:18:3B:D5|MQTTv5"
+   ]
+  },
+  "edge_024": {
+   "cold_start": false,
+   "hour_mean": 12.111420552677028,
+   "hour_std": 7.050803243892288,
+   "dur_mean": 4.658771279361981,
+   "dur_std": 1.458078363348414,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:81:F2:4E:69:04:9A|MQTTv5"
+   ]
+  },
+  "edge_025": {
+   "cold_start": false,
+   "hour_mean": 11.628818327974276,
+   "hour_std": 7.029309492618211,
+   "dur_mean": 4.080878139309303,
+   "dur_std": 1.2079708744258337,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:8A:46:D6:35:3C:90|TLSv1.3"
+   ]
+  },
+  "edge_026": {
+   "cold_start": false,
+   "hour_mean": 12.47602862254025,
+   "hour_std": 6.8780925349931135,
+   "dur_mean": 3.9105009465214873,
+   "dur_std": 1.1176551798017584,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:FE:65:66:86:67:B7|MQTTv5"
+   ]
+  },
+  "edge_027": {
+   "cold_start": false,
+   "hour_mean": 11.705295950155762,
+   "hour_std": 6.851859997817932,
+   "dur_mean": 1.6000724813372806,
+   "dur_std": 0.5,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:14:FE:6A:F6:A9:78|TLSv1.3"
+   ]
+  },
+  "edge_028": {
+   "cold_start": false,
+   "hour_mean": 12.115040410013798,
+   "hour_std": 6.883262089454402,
+   "dur_mean": 3.7684429793950054,
+   "dur_std": 1.1456060705742257,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:38:FC:4C:2E:26:33|SSHv2"
+   ]
+  },
+  "edge_029": {
+   "cold_start": false,
+   "hour_mean": 12.008364427860696,
+   "hour_std": 6.954737733809363,
+   "dur_mean": 3.96540130452534,
+   "dur_std": 1.1641236332328224,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:E9:97:87:ED:19:33|TLSv1.2"
+   ]
+  },
+  "edge_030": {
+   "cold_start": false,
+   "hour_mean": 11.737762840399864,
+   "hour_std": 6.847417413096807,
+   "dur_mean": 4.471553134711195,
+   "dur_std": 1.317823401325249,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:94:B8:A0:DA:3B:30|TLSv1.3"
+   ]
+  },
+  "edge_031": {
+   "cold_start": false,
+   "hour_mean": 11.593267651888342,
+   "hour_std": 6.790686434702368,
+   "dur_mean": 2.6150787500622745,
+   "dur_std": 0.7535986982990497,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "Android-15|MAC:57:A8:B7:E0:89:2F|SSHv2"
+   ]
+  },
+  "edge_032": {
+   "cold_start": false,
+   "hour_mean": 12.514609929078016,
+   "hour_std": 6.931841873878328,
+   "dur_mean": 3.9608824943319028,
+   "dur_std": 1.1424986864750066,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:5D:3A:CD:CC:E9:8B|MQTTv5"
+   ]
+  },
+  "edge_033": {
+   "cold_start": false,
+   "hour_mean": 11.956287605294825,
+   "hour_std": 6.860514635043361,
+   "dur_mean": 3.281013021185921,
+   "dur_std": 0.9589075138836277,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:D7:55:39:43:1E:51|TLSv1.3"
+   ]
+  },
+  "edge_034": {
+   "cold_start": false,
+   "hour_mean": 12.016733870967743,
+   "hour_std": 6.807673249382722,
+   "dur_mean": 1.3440411199806725,
+   "dur_std": 0.5,
+   "known_resources": [
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:E0:5C:C2:B7:0E:42|MQTTv5"
+   ]
+  },
+  "svc_000": {
+   "cold_start": false,
+   "hour_mean": 3.5078282828282825,
+   "hour_std": 0.5839981342818614,
+   "dur_mean": 5.493559783024594,
+   "dur_std": 1.6796554567522717,
+   "known_resources": [
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:67:42:AE:5A:A5:1E|TLSv1.3"
+   ]
+  },
+  "svc_001": {
+   "cold_start": false,
+   "hour_mean": 2.49390350877193,
+   "hour_std": 0.5812131057842335,
+   "dur_mean": 5.204380841742898,
+   "dur_std": 1.6026522943684685,
+   "known_resources": [
+    "db_prod_orders",
+    "device_fn_firmware_update",
+    "port_445_smb"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:BA:25:BF:CA:33:AC|SSHv2"
+   ]
+  },
+  "svc_002": {
+   "cold_start": false,
+   "hour_mean": 3.5494535519125687,
+   "hour_std": 0.5595072541351788,
+   "dur_mean": 6.305117999687198,
+   "dur_std": 2.0640203252708065,
+   "known_resources": [
+    "db_analytics"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:DF:F9:A2:59:B6:72|HTTPS"
+   ]
+  },
+  "svc_003": {
+   "cold_start": false,
+   "hour_mean": 2.461050061050061,
+   "hour_std": 0.5311238280937803,
+   "dur_mean": 8.316570907642358,
+   "dur_std": 2.3756251434253945,
+   "known_resources": [
+    "email_server"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:96:41:5A:00:C8:10|TLSv1.2"
+   ]
+  },
+  "svc_004": {
+   "cold_start": false,
+   "hour_mean": 2.5179138321995462,
+   "hour_std": 0.5544031642633535,
+   "dur_mean": 5.060921723539676,
+   "dur_std": 1.5840342012412196,
+   "known_resources": [
+    "device_fn_telemetry_push",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:35:FE:48:A9:27:79|SSHv2"
+   ]
+  },
+  "svc_005": {
+   "cold_start": false,
+   "hour_mean": 2.4730662983425415,
+   "hour_std": 0.6079103230020214,
+   "dur_mean": 9.958889105466225,
+   "dur_std": 2.834839042577227,
+   "known_resources": [
+    "port_22_ssh"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:AB:E4:05:87:6B:7F|TLSv1.3"
+   ]
+  },
+  "svc_006": {
+   "cold_start": false,
+   "hour_mean": 15.384146341463415,
+   "hour_std": 0.5822974942855753,
+   "dur_mean": 2.3931554335042766,
+   "dur_std": 0.6100403203783663,
+   "known_resources": [
+    "db_prod_customers",
+    "device_fn_telemetry_push"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:00:18:C5:E0:D6:55|MQTTv5"
+   ]
+  },
+  "svc_007": {
+   "cold_start": false,
+   "hour_mean": 2.440291262135923,
+   "hour_std": 0.5704770214318232,
+   "dur_mean": 2.1020534409187137,
+   "dur_std": 0.6351436582723607,
+   "known_resources": [
+    "iot_hub_controller",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:33:F5:73:53:E7:25|TLSv1.3"
+   ]
+  },
+  "svc_008": {
+   "cold_start": false,
+   "hour_mean": 14.48730548730549,
+   "hour_std": 0.5699304025054062,
+   "dur_mean": 8.41124722269645,
+   "dur_std": 2.480475343691888,
+   "known_resources": [
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:35:25:AF:57:C0:52|TLSv1.3"
+   ]
+  },
+  "svc_009": {
+   "cold_start": false,
+   "hour_mean": 4.456042296072508,
+   "hour_std": 0.5517316598385918,
+   "dur_mean": 6.50354531814379,
+   "dur_std": 2.020305045826613,
+   "known_resources": [
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:F7:0F:DC:54:DE:50|TLSv1.3"
+   ]
+  },
+  "svc_010": {
+   "cold_start": false,
+   "hour_mean": 15.55450680272109,
+   "hour_std": 0.5537989344360871,
+   "dur_mean": 7.942368646224146,
+   "dur_std": 2.395458650148281,
+   "known_resources": [
+    "admin_panel_iam",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:87:90:98:79:31:19|MQTTv5"
+   ]
+  },
+  "svc_011": {
+   "cold_start": false,
+   "hour_mean": 15.45758807588076,
+   "hour_std": 0.6319954665416087,
+   "dur_mean": 5.5643686636139,
+   "dur_std": 1.8110871652228444,
+   "known_resources": [
+    "db_prod_orders",
+    "device_fn_reboot",
+    "financial_system_erp"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:B8:01:DA:2C:96:F5|TLSv1.2"
+   ]
+  },
+  "svc_012": {
+   "cold_start": false,
+   "hour_mean": 4.5115196078431365,
+   "hour_std": 0.5404445461207047,
+   "dur_mean": 4.335273326376329,
+   "dur_std": 1.306180877692932,
+   "known_resources": [
+    "admin_panel_iam"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:95:29:F2:3B:9D:CB|MQTTv5"
+   ]
+  },
+  "svc_013": {
+   "cold_start": false,
+   "hour_mean": 2.5410256410256413,
+   "hour_std": 0.590472597719732,
+   "dur_mean": 7.538476093723622,
+   "dur_std": 2.2779412570775825,
+   "known_resources": [
+    "api_gateway_payments",
+    "file_share_eng",
+    "port_22_ssh"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:C6:5E:BD:C3:BD:5F|MQTTv5"
+   ]
+  },
+  "svc_014": {
+   "cold_start": false,
+   "hour_mean": 14.38263157894737,
+   "hour_std": 0.5641627816028152,
+   "dur_mean": 4.357129536399352,
+   "dur_std": 1.198897850960491,
+   "known_resources": [
+    "api_gateway_payments",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:89:1F:4D:31:2B:B0|HTTPS"
+   ]
+  },
+  "svc_015": {
+   "cold_start": false,
+   "hour_mean": 3.477168949771689,
+   "hour_std": 0.5494191931346826,
+   "dur_mean": 6.215870682800491,
+   "dur_std": 1.787270392030861,
+   "known_resources": [
+    "admin_panel_billing",
+    "file_share_finance",
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:D6:F3:78:F3:99:28|MQTTv5"
+   ]
+  },
+  "svc_016": {
+   "cold_start": false,
+   "hour_mean": 4.455116033755274,
+   "hour_std": 0.521819521094907,
+   "dur_mean": 4.344785366635292,
+   "dur_std": 1.3912911795173404,
+   "known_resources": [
+    "crm_system",
+    "file_share_finance",
+    "print_server"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:4B:3D:E5:58:55:6C|TLSv1.2"
+   ]
+  },
+  "svc_017": {
+   "cold_start": false,
+   "hour_mean": 14.476944444444444,
+   "hour_std": 0.6030043809986455,
+   "dur_mean": 6.463952417152293,
+   "dur_std": 1.8387193939373658,
+   "known_resources": [
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:DE:67:4B:84:A3:22|TLSv1.3"
+   ]
+  },
+  "svc_018": {
+   "cold_start": false,
+   "hour_mean": 2.4591928251121082,
+   "hour_std": 0.539986603278323,
+   "dur_mean": 6.517861088576443,
+   "dur_std": 2.0449931303545017,
+   "known_resources": [
+    "email_server",
+    "iot_hub_controller",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:EA:06:D6:39:D4:4C|TLSv1.2"
+   ]
+  },
+  "svc_019": {
+   "cold_start": false,
+   "hour_mean": 15.434886499402626,
+   "hour_std": 0.5991013596292736,
+   "dur_mean": 7.04822791188523,
+   "dur_std": 1.8921673292188692,
+   "known_resources": [
+    "crm_system",
+    "db_prod_customers",
+    "device_fn_firmware_update"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:33:92:B0:D2:87:C4|MQTTv5"
+   ]
+  },
+  "svc_020": {
+   "cold_start": false,
+   "hour_mean": 4.4910991636798085,
+   "hour_std": 0.6102323489520458,
+   "dur_mean": 8.864850209016279,
+   "dur_std": 2.865044327248923,
+   "known_resources": [
+    "db_analytics",
+    "file_share_finance",
+    "financial_system_erp"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:CE:49:CD:13:CA:A9|TLSv1.2"
+   ]
+  },
+  "svc_021": {
+   "cold_start": false,
+   "hour_mean": 3.488609112709832,
+   "hour_std": 0.5490448109739066,
+   "dur_mean": 4.790795939565772,
+   "dur_std": 1.2956135593310039,
+   "known_resources": [
+    "api_gateway_payments",
+    "financial_system_erp",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:AC:9B:9F:8F:FB:32|TLSv1.2"
+   ]
+  },
+  "svc_022": {
+   "cold_start": false,
+   "hour_mean": 4.498709315375982,
+   "hour_std": 0.537109396846628,
+   "dur_mean": 2.7579415527426487,
+   "dur_std": 0.8296536630619481,
+   "known_resources": [
+    "port_1883_mqtt",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:89:D5:2D:60:E2:6C|MQTTv5"
+   ]
+  },
+  "svc_023": {
+   "cold_start": false,
+   "hour_mean": 2.46758064516129,
+   "hour_std": 0.558055379896642,
+   "dur_mean": 6.0737467153999365,
+   "dur_std": 1.8297562325711705,
+   "known_resources": [
+    "device_fn_firmware_update",
+    "print_server"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:1C:51:21:9F:CE:45|HTTPS"
+   ]
+  },
+  "svc_024": {
+   "cold_start": false,
+   "hour_mean": 14.463956639566396,
+   "hour_std": 0.5637675900740196,
+   "dur_mean": 4.3172892853879175,
+   "dur_std": 1.363798457371398,
+   "known_resources": [
+    "db_analytics"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:66:1D:7F:10:E9:19|SSHv2"
+   ]
+  },
+  "user_0000": {
+   "cold_start": false,
+   "hour_mean": 14.346666666666668,
+   "hour_std": 3.1446026898636186,
+   "dur_mean": 41.87798431795491,
+   "dur_std": 12.218349718885978,
+   "known_resources": [
+    "db_prod_customers",
+    "db_prod_orders",
+    "iot_hub_controller",
+    "port_1883_mqtt",
+    "port_3389_rdp"
+   ],
+   "known_devices": [
+    "Android-15|MAC:CF:09:91:2B:6E:E5|HTTPS",
+    "Windows11-x64|MAC:0F:2F:6F:77:0D:65|HTTPS",
+    "iOS-18|MAC:70:E5:8E:03:51:D8|SSHv2"
+   ]
+  },
+  "user_0001": {
+   "cold_start": false,
+   "hour_mean": 13.13030303030303,
+   "hour_std": 1.7277361727004514,
+   "dur_mean": 18.672290706121714,
+   "dur_std": 5.557946943133045,
+   "known_resources": [
+    "api_gateway_payments",
+    "db_prod_customers",
+    "device_fn_telemetry_push",
+    "file_share_finance",
+    "source_repo_frontend",
+    "ticketing_system",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:77:33:C2:8E:E8:BA|TLSv1.2",
+    "Windows11-x64|MAC:96:B9:62:23:17:74|SSHv2"
+   ]
+  },
+  "user_0002": {
+   "cold_start": false,
+   "hour_mean": 18.119241192411923,
+   "hour_std": 1.4151631888886356,
+   "dur_mean": 56.891140041477506,
+   "dur_std": 17.765919228451374,
+   "known_resources": [
+    "admin_panel_billing",
+    "db_analytics",
+    "iot_hub_controller",
+    "port_1883_mqtt",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:A6:1C:75:10:A1:CD|SSHv2"
+   ]
+  },
+  "user_0003": {
+   "cold_start": false,
+   "hour_mean": 15.923263888888888,
+   "hour_std": 1.5668165749289305,
+   "dur_mean": 22.42391734143692,
+   "dur_std": 6.753122947057605,
+   "known_resources": [
+    "admin_panel_billing",
+    "api_gateway_payments",
+    "db_prod_orders",
+    "email_server",
+    "port_1883_mqtt",
+    "port_22_ssh",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:DB:CC:B9:70:46:FC|TLSv1.3",
+    "Windows11-x64|MAC:38:4E:51:D8:20:C5|MQTTv5"
+   ]
+  },
+  "user_0004": {
+   "cold_start": false,
+   "hour_mean": 14.620333333333333,
+   "hour_std": 2.084469831423443,
+   "dur_mean": 29.499824683023686,
+   "dur_std": 7.346155257236001,
+   "known_resources": [
+    "api_gateway_payments",
+    "device_fn_firmware_update",
+    "iot_hub_controller",
+    "port_3389_rdp"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:96:DE:50:E8:01:86|HTTPS",
+    "macOS-14|MAC:36:98:65:4E:BF:52|HTTPS"
+   ]
+  },
+  "user_0005": {
+   "cold_start": false,
+   "hour_mean": 7.832034632034631,
+   "hour_std": 2.2480397019867815,
+   "dur_mean": 29.441943955798152,
+   "dur_std": 9.367266611788898,
+   "known_resources": [
+    "admin_panel_billing",
+    "api_gateway_orders",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "file_share_finance",
+    "port_1883_mqtt"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:F8:23:40:41:F3:54|SSHv2"
+   ]
+  },
+  "user_0006": {
+   "cold_start": false,
+   "hour_mean": 17.94029850746269,
+   "hour_std": 1.784126961940181,
+   "dur_mean": 40.24680360460482,
+   "dur_std": 11.929967603974914,
+   "known_resources": [
+    "db_prod_customers",
+    "port_1883_mqtt",
+    "port_22_ssh",
+    "port_3389_rdp",
+    "print_server",
+    "source_repo_frontend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:0A:75:70:03:24:1E|TLSv1.2"
+   ]
+  },
+  "user_0007": {
+   "cold_start": false,
+   "hour_mean": 12.453809523809522,
+   "hour_std": 1.4945220546388918,
+   "dur_mean": 37.588345691228874,
+   "dur_std": 12.159226328876906,
+   "known_resources": [
+    "admin_panel_iam",
+    "crm_system",
+    "db_prod_orders",
+    "financial_system_erp",
+    "iot_hub_controller",
+    "port_3389_rdp"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:D0:61:30:31:DC:B5|MQTTv5"
+   ]
+  },
+  "user_0008": {
+   "cold_start": false,
+   "hour_mean": 11.241287878787878,
+   "hour_std": 2.7629738328450757,
+   "dur_mean": 35.44828258548691,
+   "dur_std": 11.720423024282404,
+   "known_resources": [
+    "admin_panel_billing",
+    "admin_panel_iam",
+    "db_prod_customers",
+    "iot_hub_controller",
+    "port_1883_mqtt",
+    "port_445_smb",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:07:2F:79:55:D0:F8|MQTTv5",
+    "macOS-14|MAC:8E:EC:7F:26:E2:32|TLSv1.3"
+   ]
+  },
+  "user_0009": {
+   "cold_start": false,
+   "hour_mean": 12.732183908045977,
+   "hour_std": 1.966000530931478,
+   "dur_mean": 16.869548231571073,
+   "dur_std": 5.133673433908004,
+   "known_resources": [
+    "api_gateway_orders",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "iot_hub_controller",
+    "source_repo_backend",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:F4:50:1D:29:5F:23|HTTPS",
+    "macOS-14|MAC:61:97:6F:1D:1F:A0|TLSv1.3"
+   ]
+  },
+  "user_0010": {
+   "cold_start": false,
+   "hour_mean": 15.774731182795698,
+   "hour_std": 2.0130956578592625,
+   "dur_mean": 37.4660051186842,
+   "dur_std": 12.032075429107804,
+   "known_resources": [
+    "crm_system",
+    "device_fn_reboot",
+    "file_share_eng",
+    "file_share_finance",
+    "port_22_ssh",
+    "port_3389_rdp",
+    "source_repo_backend",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:25:04:EA:33:25:6D|HTTPS",
+    "macOS-14|MAC:A0:7A:87:CA:43:99|MQTTv5"
+   ]
+  },
+  "user_0011": {
+   "cold_start": false,
+   "hour_mean": 9.976449275362318,
+   "hour_std": 1.7830742548686906,
+   "dur_mean": 58.30273105074018,
+   "dur_std": 18.223530680877257,
+   "known_resources": [
+    "api_gateway_orders",
+    "db_analytics",
+    "iot_hub_controller",
+    "port_445_smb",
+    "source_repo_frontend",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:99:35:44:87:3B:36|HTTPS"
+   ]
+  },
+  "user_0012": {
+   "cold_start": false,
+   "hour_mean": 15.34875,
+   "hour_std": 2.234367624706414,
+   "dur_mean": 23.830151734204456,
+   "dur_std": 7.541805138908159,
+   "known_resources": [
+    "api_gateway_payments",
+    "file_share_eng",
+    "file_share_finance",
+    "financial_system_erp",
+    "port_22_ssh",
+    "print_server"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:DA:04:39:26:4C:12|SSHv2",
+    "Windows11-x64|MAC:01:AA:42:86:52:E2|HTTPS"
+   ]
+  },
+  "user_0013": {
+   "cold_start": false,
+   "hour_mean": 14.034791666666667,
+   "hour_std": 2.1648307602360366,
+   "dur_mean": 33.331073720685374,
+   "dur_std": 10.900538600334889,
+   "known_resources": [
+    "admin_panel_billing",
+    "admin_panel_iam",
+    "port_3389_rdp",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:D0:4F:79:53:5A:D3|TLSv1.3",
+    "macOS-14|MAC:AA:D2:7F:88:51:37|MQTTv5"
+   ]
+  },
+  "user_0014": {
+   "cold_start": false,
+   "hour_mean": 12.534343434343434,
+   "hour_std": 2.355272378216419,
+   "dur_mean": 42.25380031111183,
+   "dur_std": 12.783893014794401,
+   "known_resources": [
+    "admin_panel_billing",
+    "admin_panel_iam",
+    "api_gateway_orders",
+    "device_fn_firmware_update",
+    "file_share_hr",
+    "port_3389_rdp",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:8E:B3:CC:A9:0E:3B|SSHv2",
+    "macOS-14|MAC:87:13:37:DE:B0:A0|MQTTv5"
+   ]
+  },
+  "user_0015": {
+   "cold_start": false,
+   "hour_mean": 16.659909909909913,
+   "hour_std": 2.8704918566352386,
+   "dur_mean": 18.480017598595786,
+   "dur_std": 5.701120797514167,
+   "known_resources": [
+    "admin_panel_iam",
+    "file_share_hr",
+    "iot_hub_controller",
+    "port_1883_mqtt",
+    "port_3389_rdp",
+    "print_server",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:A0:3F:99:9E:D1:A7|MQTTv5",
+    "RTOS-edge-fw2.3|MAC:97:41:62:D7:C2:59|HTTPS"
+   ]
+  },
+  "user_0016": {
+   "cold_start": false,
+   "hour_mean": 11.552912621359226,
+   "hour_std": 1.502891960163507,
+   "dur_mean": 54.766693661314726,
+   "dur_std": 15.187297184108916,
+   "known_resources": [
+    "crm_system",
+    "device_fn_telemetry_push",
+    "port_22_ssh",
+    "source_repo_backend",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:6D:F2:56:2B:91:AB|TLSv1.3",
+    "macOS-14|MAC:9E:73:65:4B:0C:17|TLSv1.2"
+   ]
+  },
+  "user_0017": {
+   "cold_start": false,
+   "hour_mean": 15.248263888888891,
+   "hour_std": 2.5285538143844164,
+   "dur_mean": 48.29805514139277,
+   "dur_std": 13.421942045522895,
+   "known_resources": [
+    "db_prod_customers",
+    "db_prod_orders",
+    "email_server",
+    "file_share_hr",
+    "financial_system_erp",
+    "port_22_ssh"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:ED:19:7F:3E:E9:44|MQTTv5"
+   ]
+  },
+  "user_0018": {
+   "cold_start": false,
+   "hour_mean": 11.004641350210969,
+   "hour_std": 2.8430701683667325,
+   "dur_mean": 41.56325218696543,
+   "dur_std": 12.720729645387422,
+   "known_resources": [
+    "admin_panel_billing",
+    "api_gateway_payments",
+    "db_analytics",
+    "device_fn_reboot",
+    "financial_system_erp",
+    "port_1883_mqtt",
+    "port_3389_rdp",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:7A:8C:E1:27:92:78|SSHv2",
+    "Ubuntu-22.04|MAC:A3:29:46:4D:76:C4|TLSv1.2"
+   ]
+  },
+  "user_0019": {
+   "cold_start": false,
+   "hour_mean": 10.41851851851852,
+   "hour_std": 2.8458289661202714,
+   "dur_mean": 29.441235377557096,
+   "dur_std": 6.793370927383812,
+   "known_resources": [
+    "admin_panel_iam",
+    "crm_system",
+    "device_fn_telemetry_push",
+    "email_server",
+    "file_share_finance",
+    "file_share_hr",
+    "source_repo_backend",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:BD:77:15:69:B8:C6|MQTTv5",
+    "iOS-18|MAC:03:B4:98:C7:D6:70|MQTTv5",
+    "macOS-14|MAC:8B:DF:F8:0E:C7:AC|MQTTv5"
+   ]
+  },
+  "user_0020": {
+   "cold_start": false,
+   "hour_mean": 15.817777777777774,
+   "hour_std": 2.8612316342174156,
+   "dur_mean": 37.42135570277419,
+   "dur_std": 10.754602287726035,
+   "known_resources": [
+    "crm_system",
+    "device_fn_reboot",
+    "file_share_eng",
+    "file_share_hr",
+    "port_22_ssh",
+    "port_3389_rdp",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:C2:8E:D7:81:29:F0|TLSv1.3",
+    "macOS-14|MAC:19:85:C2:A7:6C:E8|SSHv2"
+   ]
+  },
+  "user_0021": {
+   "cold_start": false,
+   "hour_mean": 16.736524822695035,
+   "hour_std": 2.852173579118671,
+   "dur_mean": 47.89853036748221,
+   "dur_std": 14.82340133583027,
+   "known_resources": [
+    "admin_panel_billing",
+    "admin_panel_iam",
+    "device_fn_reboot",
+    "file_share_hr"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:41:52:44:14:4B:1C|TLSv1.2",
+    "macOS-14|MAC:F2:3A:6F:EE:83:BC|TLSv1.2"
+   ]
+  },
+  "user_0022": {
+   "cold_start": false,
+   "hour_mean": 13.633898305084744,
+   "hour_std": 2.2864773347896223,
+   "dur_mean": 33.90500541451265,
+   "dur_std": 9.94033090300552,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_orders",
+    "crm_system",
+    "email_server",
+    "file_share_eng",
+    "file_share_hr",
+    "port_3389_rdp",
+    "port_445_smb"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:9A:3D:15:B1:DB:BD|TLSv1.3"
+   ]
+  },
+  "user_0023": {
+   "cold_start": false,
+   "hour_mean": 18.08050314465409,
+   "hour_std": 1.8867365959586677,
+   "dur_mean": 15.854303687269951,
+   "dur_std": 5.537534850332776,
+   "known_resources": [
+    "db_analytics",
+    "db_prod_orders",
+    "port_22_ssh",
+    "port_445_smb",
+    "source_repo_backend",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Android-15|MAC:F7:EE:DF:89:A5:7D|TLSv1.3",
+    "Ubuntu-22.04|MAC:E6:7C:ED:C2:AC:0E|MQTTv5"
+   ]
+  },
+  "user_0024": {
+   "cold_start": false,
+   "hour_mean": 13.14025974025974,
+   "hour_std": 3.106928861301971,
+   "dur_mean": 24.881605622213495,
+   "dur_std": 7.318328769732863,
+   "known_resources": [
+    "api_gateway_payments",
+    "device_fn_reboot",
+    "file_share_hr",
+    "iot_hub_controller",
+    "port_445_smb",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:7B:D0:FA:7B:F3:FB|MQTTv5"
+   ]
+  },
+  "user_0025": {
+   "cold_start": false,
+   "hour_mean": 7.046236559139785,
+   "hour_std": 2.751190683906055,
+   "dur_mean": 26.495470940448094,
+   "dur_std": 7.347888194425933,
+   "known_resources": [
+    "api_gateway_orders",
+    "crm_system",
+    "financial_system_erp",
+    "port_3389_rdp",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:62:A1:3D:5E:62:6E|MQTTv5",
+    "iOS-18|MAC:A9:B4:E8:8A:9C:80|TLSv1.2"
+   ]
+  },
+  "user_0026": {
+   "cold_start": false,
+   "hour_mean": 11.040551181102362,
+   "hour_std": 2.87929848169625,
+   "dur_mean": 50.260040183903286,
+   "dur_std": 15.434695293281637,
+   "known_resources": [
+    "admin_panel_billing",
+    "api_gateway_orders",
+    "db_analytics",
+    "file_share_hr",
+    "iot_hub_controller",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:95:40:FB:34:06:91|MQTTv5"
+   ]
+  },
+  "user_0027": {
+   "cold_start": false,
+   "hour_mean": 12.750847457627115,
+   "hour_std": 2.656511597402546,
+   "dur_mean": 49.71575412228071,
+   "dur_std": 16.74032330757782,
+   "known_resources": [
+    "device_fn_reboot",
+    "email_server",
+    "file_share_eng",
+    "financial_system_erp"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:4C:9B:2B:7F:3C:D5|HTTPS"
+   ]
+  },
+  "user_0028": {
+   "cold_start": false,
+   "hour_mean": 15.011190476190478,
+   "hour_std": 2.908218574523358,
+   "dur_mean": 57.66945544562313,
+   "dur_std": 16.846252210313008,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_orders",
+    "crm_system",
+    "db_prod_customers",
+    "file_share_finance",
+    "port_1883_mqtt",
+    "source_repo_backend",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Android-15|MAC:D6:4C:31:5A:F3:13|HTTPS",
+    "RTOS-edge-fw2.3|MAC:29:50:7A:58:26:50|TLSv1.3",
+    "iOS-18|MAC:E6:F0:95:10:76:93|SSHv2"
+   ]
+  },
+  "user_0029": {
+   "cold_start": false,
+   "hour_mean": 16.266450216450217,
+   "hour_std": 1.57021223820243,
+   "dur_mean": 25.42059721368911,
+   "dur_std": 7.998639529099601,
+   "known_resources": [
+    "admin_panel_billing",
+    "admin_panel_iam",
+    "db_prod_customers",
+    "db_prod_orders",
+    "device_fn_telemetry_push",
+    "iot_hub_controller",
+    "port_3389_rdp",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:1E:54:9D:93:E0:3F|MQTTv5"
+   ]
+  },
+  "user_0030": {
+   "cold_start": false,
+   "hour_mean": 14.375897435897436,
+   "hour_std": 1.4084382072922774,
+   "dur_mean": 36.72910589283689,
+   "dur_std": 10.025580024145203,
+   "known_resources": [
+    "file_share_finance",
+    "port_1883_mqtt",
+    "source_repo_backend",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Android-15|MAC:E2:8E:5C:DF:FB:2E|MQTTv5",
+    "Windows11-x64|MAC:2E:75:0A:89:14:59|MQTTv5"
+   ]
+  },
+  "user_0031": {
+   "cold_start": false,
+   "hour_mean": 15.523287671232877,
+   "hour_std": 2.1434164557603554,
+   "dur_mean": 19.193166746005748,
+   "dur_std": 6.467571920600893,
+   "known_resources": [
+    "api_gateway_orders",
+    "email_server",
+    "file_share_finance",
+    "financial_system_erp",
+    "iot_hub_controller",
+    "port_3389_rdp",
+    "port_445_smb"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:A5:3B:CE:00:EC:D3|TLSv1.3",
+    "macOS-14|MAC:70:D2:49:5D:87:55|SSHv2",
+    "macOS-14|MAC:B9:FF:E2:1A:68:88|HTTPS"
+   ]
+  },
+  "user_0032": {
+   "cold_start": false,
+   "hour_mean": 12.93939393939394,
+   "hour_std": 2.1627748802395463,
+   "dur_mean": 46.66059419265332,
+   "dur_std": 14.326897706426655,
+   "known_resources": [
+    "admin_panel_billing",
+    "api_gateway_orders",
+    "db_analytics",
+    "device_fn_telemetry_push",
+    "file_share_hr",
+    "iot_hub_controller",
+    "port_3389_rdp",
+    "port_445_smb"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:EC:3C:4E:FF:95:8B|MQTTv5"
+   ]
+  },
+  "user_0033": {
+   "cold_start": false,
+   "hour_mean": 14.570833333333335,
+   "hour_std": 3.463864324797676,
+   "dur_mean": 57.6828969795791,
+   "dur_std": 18.212360825648727,
+   "known_resources": [
+    "db_prod_orders",
+    "file_share_eng",
+    "port_1883_mqtt",
+    "print_server",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Android-15|MAC:F7:B0:AA:C1:E9:A4|TLSv1.2",
+    "Ubuntu-22.04|MAC:88:01:90:98:FA:4C|MQTTv5"
+   ]
+  },
+  "user_0034": {
+   "cold_start": false,
+   "hour_mean": 7.717261904761903,
+   "hour_std": 1.947456458087935,
+   "dur_mean": 17.16625364625016,
+   "dur_std": 5.155665088308694,
+   "known_resources": [
+    "financial_system_erp",
+    "port_1883_mqtt",
+    "port_445_smb",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:E9:07:49:D1:4F:26|MQTTv5",
+    "iOS-18|MAC:4D:FD:12:40:A9:33|MQTTv5"
+   ]
+  },
+  "user_0035": {
+   "cold_start": false,
+   "hour_mean": 13.101886792452829,
+   "hour_std": 3.0578497493339487,
+   "dur_mean": 17.5503721084465,
+   "dur_std": 4.958185945898082,
+   "known_resources": [
+    "email_server",
+    "file_share_finance",
+    "financial_system_erp",
+    "iot_hub_controller",
+    "port_22_ssh",
+    "port_445_smb",
+    "ticketing_system",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:17:A6:1C:96:B7:BF|MQTTv5",
+    "macOS-14|MAC:2E:DE:32:33:E3:55|SSHv2"
+   ]
+  },
+  "user_0036": {
+   "cold_start": false,
+   "hour_mean": 12.799537037037036,
+   "hour_std": 1.951958648801775,
+   "dur_mean": 37.86131927715804,
+   "dur_std": 10.099735943400656,
+   "known_resources": [
+    "db_analytics",
+    "email_server",
+    "file_share_eng",
+    "port_3389_rdp",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:EC:82:EB:82:04:EE|SSHv2"
+   ]
+  },
+  "user_0037": {
+   "cold_start": false,
+   "hour_mean": 14.556280193236717,
+   "hour_std": 1.7354705648620607,
+   "dur_mean": 44.02894760725644,
+   "dur_std": 13.932614065429519,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_orders",
+    "api_gateway_payments",
+    "email_server",
+    "financial_system_erp",
+    "port_445_smb",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Android-15|MAC:19:FE:92:75:B4:70|TLSv1.2",
+    "Android-15|MAC:B7:97:97:0B:CA:8C|TLSv1.3"
+   ]
+  },
+  "user_0038": {
+   "cold_start": false,
+   "hour_mean": 16.01284722222222,
+   "hour_std": 1.8885426776800953,
+   "dur_mean": 42.20140727675648,
+   "dur_std": 10.808159449224743,
+   "known_resources": [
+    "api_gateway_orders",
+    "device_fn_telemetry_push",
+    "file_share_finance",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:97:A7:D4:59:66:43|HTTPS"
+   ]
+  },
+  "user_0039": {
+   "cold_start": false,
+   "hour_mean": 11.613131313131312,
+   "hour_std": 2.8516711616565362,
+   "dur_mean": 18.91594902543282,
+   "dur_std": 5.446738009070039,
+   "known_resources": [
+    "admin_panel_billing",
+    "db_prod_customers",
+    "db_prod_orders",
+    "device_fn_telemetry_push",
+    "file_share_eng",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Android-15|MAC:BB:2E:CA:07:87:3F|MQTTv5",
+    "Android-15|MAC:F1:4C:BB:C8:72:94|TLSv1.2",
+    "Ubuntu-22.04|MAC:86:C3:BE:37:77:F1|TLSv1.3"
+   ]
+  },
+  "user_0040": {
+   "cold_start": false,
+   "hour_mean": 9.981746031746033,
+   "hour_std": 1.8109965685855323,
+   "dur_mean": 42.11711066484046,
+   "dur_std": 12.652626012658382,
+   "known_resources": [
+    "db_prod_customers",
+    "db_prod_orders",
+    "file_share_finance",
+    "port_22_ssh",
+    "port_445_smb",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:31:78:45:C6:E8:BD|HTTPS",
+    "iOS-18|MAC:4F:D4:32:FA:D0:8F|TLSv1.3",
+    "macOS-14|MAC:4C:5F:50:B9:3C:75|MQTTv5"
+   ]
+  },
+  "user_0041": {
+   "cold_start": false,
+   "hour_mean": 12.254964539007092,
+   "hour_std": 1.542399609921565,
+   "dur_mean": 37.44660552389024,
+   "dur_std": 12.285863649881696,
+   "known_resources": [
+    "iot_hub_controller",
+    "port_22_ssh",
+    "port_3389_rdp",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:61:3E:E8:2E:6C:0A|TLSv1.3",
+    "Ubuntu-22.04|MAC:7C:40:69:23:6A:6E|TLSv1.2"
+   ]
+  },
+  "user_0042": {
+   "cold_start": false,
+   "hour_mean": 10.990924092409243,
+   "hour_std": 3.0748374164358276,
+   "dur_mean": 33.081298003501324,
+   "dur_std": 10.196348744583645,
+   "known_resources": [
+    "api_gateway_payments",
+    "db_analytics",
+    "db_prod_orders",
+    "device_fn_telemetry_push",
+    "iot_hub_controller"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:8D:B8:44:A9:F5:EC|MQTTv5",
+    "macOS-14|MAC:07:B7:79:A5:08:59|SSHv2"
+   ]
+  },
+  "user_0043": {
+   "cold_start": false,
+   "hour_mean": 14.940909090909088,
+   "hour_std": 1.680460187316481,
+   "dur_mean": 30.79389179219537,
+   "dur_std": 7.3488666532334115,
+   "known_resources": [
+    "device_fn_firmware_update",
+    "financial_system_erp",
+    "source_repo_frontend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:71:16:9A:EA:0F:1F|MQTTv5"
+   ]
+  },
+  "user_0044": {
+   "cold_start": false,
+   "hour_mean": 16.11425925925926,
+   "hour_std": 2.695429572668876,
+   "dur_mean": 40.68199179403834,
+   "dur_std": 11.043839926698778,
+   "known_resources": [
+    "db_prod_orders",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "file_share_eng",
+    "port_445_smb",
+    "ticketing_system",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:74:D3:AD:E8:CC:D4|TLSv1.3",
+    "iOS-18|MAC:96:E8:DC:32:3A:6E|MQTTv5"
+   ]
+  },
+  "user_0045": {
+   "cold_start": false,
+   "hour_mean": 9.620728291316526,
+   "hour_std": 1.839547719308412,
+   "dur_mean": 18.56281799541564,
+   "dur_std": 6.402858300273132,
+   "known_resources": [
+    "db_prod_customers",
+    "device_fn_firmware_update",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "file_share_eng",
+    "source_repo_backend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:A8:3E:D2:B5:D8:1A|SSHv2"
+   ]
+  },
+  "user_0046": {
+   "cold_start": false,
+   "hour_mean": 14.76129476584022,
+   "hour_std": 2.139541979883858,
+   "dur_mean": 30.83399967702142,
+   "dur_std": 9.20701817409988,
+   "known_resources": [
+    "admin_panel_billing",
+    "api_gateway_payments",
+    "db_prod_customers",
+    "device_fn_firmware_update",
+    "device_fn_telemetry_push",
+    "iot_hub_controller",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:0D:88:0E:5C:8B:9E|SSHv2",
+    "Ubuntu-22.04|MAC:03:5C:49:CD:23:48|TLSv1.3",
+    "Ubuntu-22.04|MAC:27:80:C0:72:CF:B4|SSHv2"
+   ]
+  },
+  "user_0047": {
+   "cold_start": false,
+   "hour_mean": 15.419312169312171,
+   "hour_std": 3.1212514674572533,
+   "dur_mean": 54.611146137753146,
+   "dur_std": 17.657792586263202,
+   "known_resources": [
+    "api_gateway_orders",
+    "device_fn_firmware_update",
+    "port_1883_mqtt",
+    "vpn_gateway_1",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:4F:50:19:29:8B:E2|MQTTv5"
+   ]
+  },
+  "user_0048": {
+   "cold_start": false,
+   "hour_mean": 11.479344729344731,
+   "hour_std": 1.6424383354308205,
+   "dur_mean": 55.45871072363903,
+   "dur_std": 16.306243256197376,
+   "known_resources": [
+    "api_gateway_orders",
+    "crm_system",
+    "db_prod_customers",
+    "port_1883_mqtt",
+    "port_3389_rdp",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:70:CA:1C:03:68:9A|TLSv1.2",
+    "macOS-14|MAC:82:94:A7:3D:03:FE|MQTTv5"
+   ]
+  },
+  "user_0049": {
+   "cold_start": false,
+   "hour_mean": 14.352657004830919,
+   "hour_std": 1.6344274626376754,
+   "dur_mean": 18.503957087802576,
+   "dur_std": 5.739804758464778,
+   "known_resources": [
+    "email_server",
+    "file_share_finance",
+    "port_1883_mqtt",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:DB:CF:D5:94:3A:CF|TLSv1.3"
+   ]
+  },
+  "user_0050": {
+   "cold_start": false,
+   "hour_mean": 18.837999999999997,
+   "hour_std": 3.2551351899890584,
+   "dur_mean": 23.018148701506068,
+   "dur_std": 7.30028930578961,
+   "known_resources": [
+    "admin_panel_billing",
+    "crm_system",
+    "db_prod_customers",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:9E:AD:71:AA:56:27|HTTPS"
+   ]
+  },
+  "user_0051": {
+   "cold_start": false,
+   "hour_mean": 15.015087719298243,
+   "hour_std": 1.9936350753677232,
+   "dur_mean": 30.20312897974953,
+   "dur_std": 9.591582643140338,
+   "known_resources": [
+    "admin_panel_billing",
+    "db_prod_customers",
+    "db_prod_orders",
+    "device_fn_firmware_update",
+    "port_1883_mqtt",
+    "port_22_ssh"
+   ],
+   "known_devices": [
+    "Android-15|MAC:4E:26:5A:FC:ED:E5|HTTPS"
+   ]
+  },
+  "user_0052": {
+   "cold_start": false,
+   "hour_mean": 16.319379844961237,
+   "hour_std": 2.1155663001361913,
+   "dur_mean": 38.25733785983951,
+   "dur_std": 11.56822858573896,
+   "known_resources": [
+    "api_gateway_orders",
+    "api_gateway_payments",
+    "crm_system",
+    "file_share_finance",
+    "port_22_ssh",
+    "source_repo_frontend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:C4:EC:15:E6:60:A4|HTTPS",
+    "iOS-18|MAC:E7:13:1D:BC:92:27|TLSv1.3"
+   ]
+  },
+  "user_0053": {
+   "cold_start": false,
+   "hour_mean": 14.86609195402299,
+   "hour_std": 2.5182355698302525,
+   "dur_mean": 26.12617452459423,
+   "dur_std": 6.8773808770300215,
+   "known_resources": [
+    "admin_panel_billing",
+    "db_analytics",
+    "file_share_finance",
+    "port_22_ssh",
+    "port_3389_rdp",
+    "port_445_smb",
+    "print_server",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:BE:90:C6:D1:AD:1A|SSHv2"
+   ]
+  },
+  "user_0054": {
+   "cold_start": false,
+   "hour_mean": 12.996153846153845,
+   "hour_std": 2.7222001052447946,
+   "dur_mean": 45.02240223276413,
+   "dur_std": 13.68506311672315,
+   "known_resources": [
+    "api_gateway_orders",
+    "crm_system",
+    "db_prod_orders",
+    "device_fn_reboot",
+    "file_share_eng",
+    "port_3389_rdp",
+    "vpn_gateway_1",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:B9:09:B9:9E:5C:6D|SSHv2",
+    "RTOS-edge-fw2.3|MAC:3A:F6:F5:F5:6B:52|MQTTv5",
+    "macOS-14|MAC:2B:9E:C0:A8:41:2F|MQTTv5"
+   ]
+  },
+  "user_0055": {
+   "cold_start": false,
+   "hour_mean": 14.341025641025643,
+   "hour_std": 2.0260188720129113,
+   "dur_mean": 41.9884928638511,
+   "dur_std": 12.822219657493132,
+   "known_resources": [
+    "db_prod_customers",
+    "device_fn_firmware_update",
+    "device_fn_telemetry_push",
+    "file_share_finance",
+    "iot_hub_controller",
+    "print_server"
+   ],
+   "known_devices": [
+    "Android-15|MAC:C0:4E:53:5C:54:E0|TLSv1.3"
+   ]
+  },
+  "user_0056": {
+   "cold_start": false,
+   "hour_mean": 15.42797619047619,
+   "hour_std": 1.7123633550412896,
+   "dur_mean": 16.103145529269028,
+   "dur_std": 4.796628079574508,
+   "known_resources": [
+    "admin_panel_billing",
+    "device_fn_firmware_update",
+    "device_fn_telemetry_push",
+    "iot_hub_controller",
+    "port_1883_mqtt",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:46:80:1A:F6:BE:34|HTTPS",
+    "macOS-14|MAC:BC:E1:EC:90:C3:D6|TLSv1.2"
+   ]
+  },
+  "user_0057": {
+   "cold_start": false,
+   "hour_mean": 10.978245614035089,
+   "hour_std": 1.728686614016881,
+   "dur_mean": 56.31425273564194,
+   "dur_std": 14.833064698888458,
+   "known_resources": [
+    "admin_panel_billing",
+    "db_prod_orders",
+    "file_share_eng",
+    "print_server",
+    "source_repo_backend",
+    "source_repo_frontend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:A3:32:AB:4A:46:13|SSHv2",
+    "Windows11-x64|MAC:CA:BF:78:C5:29:BF|TLSv1.2"
+   ]
+  },
+  "user_0058": {
+   "cold_start": false,
+   "hour_mean": 12.636444444444443,
+   "hour_std": 1.5191413661968696,
+   "dur_mean": 58.69822491663194,
+   "dur_std": 18.045464245446468,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_payments",
+    "file_share_eng",
+    "file_share_hr"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:EA:20:38:FF:08:7B|TLSv1.2",
+    "Windows11-x64|MAC:93:79:9A:3E:18:7A|MQTTv5"
+   ]
+  },
+  "user_0059": {
+   "cold_start": false,
+   "hour_mean": 15.457552083333333,
+   "hour_std": 3.0263040900097886,
+   "dur_mean": 58.91669761382257,
+   "dur_std": 16.90856543036795,
+   "known_resources": [
+    "db_analytics",
+    "device_fn_telemetry_push",
+    "file_share_eng",
+    "port_1883_mqtt",
+    "port_3389_rdp",
+    "print_server",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:F0:16:C6:BF:81:08|SSHv2"
+   ]
+  },
+  "user_0060": {
+   "cold_start": false,
+   "hour_mean": 11.145925925925926,
+   "hour_std": 3.1458830631340353,
+   "dur_mean": 30.16064167579804,
+   "dur_std": 9.278621637815414,
+   "known_resources": [
+    "device_fn_reboot",
+    "file_share_finance",
+    "iot_hub_controller",
+    "vpn_gateway_1",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:F5:5D:45:20:EA:12|SSHv2",
+    "macOS-14|MAC:16:66:15:A1:9E:CB|HTTPS"
+   ]
+  },
+  "user_0061": {
+   "cold_start": false,
+   "hour_mean": 8.972368421052632,
+   "hour_std": 2.1727674817456673,
+   "dur_mean": 58.05955636622331,
+   "dur_std": 15.881122450210754,
+   "known_resources": [
+    "api_gateway_payments",
+    "db_prod_customers",
+    "port_22_ssh",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Android-15|MAC:88:2A:D9:28:DC:5C|HTTPS",
+    "iOS-18|MAC:E1:C5:AD:5F:FE:FE|SSHv2"
+   ]
+  },
+  "user_0062": {
+   "cold_start": false,
+   "hour_mean": 10.766944444444444,
+   "hour_std": 1.9627810213387429,
+   "dur_mean": 59.130141765860444,
+   "dur_std": 17.035922652241116,
+   "known_resources": [
+    "db_analytics",
+    "device_fn_telemetry_push",
+    "port_445_smb",
+    "source_repo_backend",
+    "source_repo_frontend",
+    "ticketing_system",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:DE:8C:1D:26:CF:BA|HTTPS",
+    "RTOS-edge-fw2.3|MAC:51:0F:49:E0:11:40|TLSv1.3"
+   ]
+  },
+  "user_0063": {
+   "cold_start": false,
+   "hour_mean": 14.12371794871795,
+   "hour_std": 2.4344072754737405,
+   "dur_mean": 53.294107254360895,
+   "dur_std": 15.426261858012612,
+   "known_resources": [
+    "crm_system",
+    "db_prod_orders",
+    "device_fn_reboot",
+    "file_share_eng",
+    "print_server",
+    "source_repo_frontend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:8E:7F:3A:0D:5F:FF|HTTPS",
+    "iOS-18|MAC:3C:86:85:E4:6D:92|MQTTv5"
+   ]
+  },
+  "user_0064": {
+   "cold_start": false,
+   "hour_mean": 16.975446428571427,
+   "hour_std": 2.052300352249394,
+   "dur_mean": 28.02141433624041,
+   "dur_std": 7.53822894671407,
+   "known_resources": [
+    "device_fn_firmware_update",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "file_share_eng",
+    "port_3389_rdp",
+    "vpn_gateway_1",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:50:59:B9:72:3E:66|TLSv1.2",
+    "macOS-14|MAC:FC:0D:B8:BC:EF:42|HTTPS"
+   ]
+  },
+  "user_0065": {
+   "cold_start": false,
+   "hour_mean": 16.756702898550724,
+   "hour_std": 2.7502814372388884,
+   "dur_mean": 53.53751590330254,
+   "dur_std": 16.984401508252652,
+   "known_resources": [
+    "crm_system",
+    "db_prod_orders",
+    "device_fn_firmware_update",
+    "device_fn_reboot",
+    "file_share_eng",
+    "port_22_ssh",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:52:A5:73:B1:91:28|SSHv2",
+    "macOS-14|MAC:5D:42:DD:1C:3F:4E|SSHv2"
+   ]
+  },
+  "user_0066": {
+   "cold_start": false,
+   "hour_mean": 15.065935672514621,
+   "hour_std": 2.8201937128377517,
+   "dur_mean": 46.39002384345563,
+   "dur_std": 13.31757369224822,
+   "known_resources": [
+    "crm_system",
+    "db_analytics",
+    "db_prod_orders",
+    "device_fn_firmware_update",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "port_22_ssh",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:29:17:87:6B:D5:0F|MQTTv5"
+   ]
+  },
+  "user_0067": {
+   "cold_start": false,
+   "hour_mean": 1.7231250000000002,
+   "hour_std": 1.4790127987956718,
+   "dur_mean": 54.90845400152705,
+   "dur_std": 17.521274752820588,
+   "known_resources": [
+    "db_analytics",
+    "device_fn_reboot",
+    "file_share_eng",
+    "file_share_finance",
+    "port_445_smb",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:36:A3:7B:EE:3E:88|MQTTv5",
+    "macOS-14|MAC:AE:49:A0:A3:B0:CC|TLSv1.2"
+   ]
+  },
+  "user_0068": {
+   "cold_start": false,
+   "hour_mean": 11.355411255411253,
+   "hour_std": 2.6598988152368785,
+   "dur_mean": 16.38500162939886,
+   "dur_std": 5.1994475905102515,
+   "known_resources": [
+    "admin_panel_billing",
+    "admin_panel_iam",
+    "crm_system",
+    "db_analytics",
+    "device_fn_firmware_update",
+    "port_1883_mqtt",
+    "source_repo_backend",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:9D:FE:0B:2E:C9:EA|TLSv1.2",
+    "macOS-14|MAC:B4:18:19:90:FD:F0|SSHv2"
+   ]
+  },
+  "user_0069": {
+   "cold_start": false,
+   "hour_mean": 12.818599033816424,
+   "hour_std": 2.3218001668891257,
+   "dur_mean": 27.216448029077586,
+   "dur_std": 8.007722022036651,
+   "known_resources": [
+    "device_fn_firmware_update",
+    "device_fn_telemetry_push",
+    "email_server",
+    "file_share_finance",
+    "port_1883_mqtt",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:93:25:C5:E6:8F:3C|TLSv1.2"
+   ]
+  },
+  "user_0070": {
+   "cold_start": false,
+   "hour_mean": 11.991666666666667,
+   "hour_std": 1.783242582006215,
+   "dur_mean": 39.76386936546254,
+   "dur_std": 10.820660391832261,
+   "known_resources": [
+    "db_prod_orders",
+    "email_server",
+    "file_share_finance",
+    "print_server",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Android-15|MAC:99:AC:FA:99:F3:08|SSHv2",
+    "Android-15|MAC:E9:4C:47:A7:A3:53|MQTTv5"
+   ]
+  },
+  "user_0071": {
+   "cold_start": false,
+   "hour_mean": 16.714666666666666,
+   "hour_std": 1.5741917985411127,
+   "dur_mean": 45.905797937924405,
+   "dur_std": 13.244230316281016,
+   "known_resources": [
+    "admin_panel_billing",
+    "api_gateway_payments",
+    "crm_system",
+    "file_share_finance",
+    "financial_system_erp",
+    "port_1883_mqtt",
+    "port_22_ssh",
+    "port_445_smb"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:4D:D3:68:D2:F1:1F|TLSv1.2",
+    "macOS-14|MAC:7C:10:38:61:09:E1|SSHv2"
+   ]
+  },
+  "user_0072": {
+   "cold_start": false,
+   "hour_mean": 13.56543209876543,
+   "hour_std": 2.6137215083969427,
+   "dur_mean": 47.149886095479715,
+   "dur_std": 14.07026521338367,
+   "known_resources": [
+    "db_analytics",
+    "device_fn_firmware_update",
+    "iot_hub_controller",
+    "source_repo_frontend",
+    "vpn_gateway_1",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:F7:62:7E:8E:98:73|SSHv2",
+    "Ubuntu-22.04|MAC:6A:FA:A2:F5:B2:8C|SSHv2",
+    "Windows11-x64|MAC:14:A5:34:8C:86:59|MQTTv5"
+   ]
+  },
+  "user_0073": {
+   "cold_start": false,
+   "hour_mean": 11.354761904761904,
+   "hour_std": 3.050640825681231,
+   "dur_mean": 39.05157701879306,
+   "dur_std": 10.68188135953279,
+   "known_resources": [
+    "api_gateway_orders",
+    "file_share_eng",
+    "file_share_finance",
+    "port_445_smb",
+    "source_repo_frontend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:73:77:1A:33:D3:A9|MQTTv5",
+    "macOS-14|MAC:67:8A:8B:46:37:7A|TLSv1.2"
+   ]
+  },
+  "user_0074": {
+   "cold_start": false,
+   "hour_mean": 11.683783783783785,
+   "hour_std": 2.244755501294947,
+   "dur_mean": 17.983229679801347,
+   "dur_std": 5.769038402966283,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_orders",
+    "device_fn_firmware_update",
+    "device_fn_reboot",
+    "port_1883_mqtt",
+    "port_22_ssh",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:76:13:59:D5:5A:12|MQTTv5",
+    "macOS-14|MAC:5B:4A:F7:B7:14:70|MQTTv5"
+   ]
+  },
+  "user_0075": {
+   "cold_start": false,
+   "hour_mean": 16.15032362459547,
+   "hour_std": 2.84021269856809,
+   "dur_mean": 52.80624530065355,
+   "dur_std": 15.243777637534496,
+   "known_resources": [
+    "api_gateway_orders",
+    "crm_system",
+    "db_prod_customers",
+    "source_repo_frontend",
+    "ticketing_system",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:83:5F:07:AC:97:62|TLSv1.2",
+    "macOS-14|MAC:EF:8B:62:39:A9:53|MQTTv5"
+   ]
+  },
+  "user_0076": {
+   "cold_start": false,
+   "hour_mean": 10.195982142857144,
+   "hour_std": 1.8264822104098124,
+   "dur_mean": 25.644778993358578,
+   "dur_std": 7.730829876616306,
+   "known_resources": [
+    "db_analytics",
+    "db_prod_orders",
+    "financial_system_erp",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:C4:78:E4:88:A8:9A|HTTPS"
+   ]
+  },
+  "user_0077": {
+   "cold_start": false,
+   "hour_mean": 12.610869565217392,
+   "hour_std": 2.198811001648816,
+   "dur_mean": 44.13559336888589,
+   "dur_std": 11.435209408532554,
+   "known_resources": [
+    "api_gateway_orders",
+    "db_analytics",
+    "db_prod_customers",
+    "device_fn_reboot",
+    "email_server",
+    "port_3389_rdp",
+    "print_server"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:71:70:44:F4:4E:E8|HTTPS",
+    "Ubuntu-22.04|MAC:D4:F1:6F:7E:29:E4|HTTPS"
+   ]
+  },
+  "user_0078": {
+   "cold_start": false,
+   "hour_mean": 18.731617647058822,
+   "hour_std": 3.0680009260868877,
+   "dur_mean": 27.251729068997047,
+   "dur_std": 8.348524968737834,
+   "known_resources": [
+    "admin_panel_iam",
+    "crm_system",
+    "db_analytics",
+    "db_prod_orders",
+    "iot_hub_controller",
+    "print_server",
+    "source_repo_frontend",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:FA:2E:E4:1C:E8:43|HTTPS",
+    "iOS-18|MAC:37:59:29:8F:47:64|SSHv2"
+   ]
+  },
+  "user_0079": {
+   "cold_start": false,
+   "hour_mean": 15.96477272727273,
+   "hour_std": 3.2808035662272035,
+   "dur_mean": 16.524521616293047,
+   "dur_std": 5.276454271905121,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_payments",
+    "device_fn_telemetry_push",
+    "email_server",
+    "file_share_hr",
+    "port_1883_mqtt"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:B0:20:1E:23:F1:10|SSHv2"
+   ]
+  },
+  "user_0080": {
+   "cold_start": false,
+   "hour_mean": 14.39,
+   "hour_std": 2.3053056256769464,
+   "dur_mean": 18.998804897041296,
+   "dur_std": 5.1393224902294445,
+   "known_resources": [
+    "device_fn_telemetry_push",
+    "email_server",
+    "file_share_eng",
+    "iot_hub_controller",
+    "port_3389_rdp",
+    "port_445_smb",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:5B:C9:41:72:01:0B|SSHv2",
+    "iOS-18|MAC:D9:C2:75:7E:EB:B1|TLSv1.2"
+   ]
+  },
+  "user_0081": {
+   "cold_start": false,
+   "hour_mean": 16.548826291079813,
+   "hour_std": 2.1082308914386876,
+   "dur_mean": 23.62486682683064,
+   "dur_std": 7.365518454040621,
+   "known_resources": [
+    "admin_panel_billing",
+    "admin_panel_iam",
+    "db_prod_customers",
+    "device_fn_firmware_update",
+    "file_share_eng",
+    "file_share_finance",
+    "file_share_hr",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:16:CD:E0:77:6F:1C|TLSv1.2"
+   ]
+  },
+  "user_0082": {
+   "cold_start": false,
+   "hour_mean": 18.563742690058483,
+   "hour_std": 2.3917374363327037,
+   "dur_mean": 16.620095954484306,
+   "dur_std": 4.786534708971846,
+   "known_resources": [
+    "admin_panel_billing",
+    "api_gateway_orders",
+    "db_prod_orders",
+    "device_fn_firmware_update",
+    "port_1883_mqtt",
+    "port_3389_rdp",
+    "print_server",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:D5:D1:4C:99:C0:5E|HTTPS",
+    "Windows11-x64|MAC:59:DA:FD:18:B0:C3|HTTPS"
+   ]
+  },
+  "user_0083": {
+   "cold_start": false,
+   "hour_mean": 8.951296296296297,
+   "hour_std": 2.5548321792792494,
+   "dur_mean": 35.77149206025204,
+   "dur_std": 11.140962514658934,
+   "known_resources": [
+    "db_prod_orders",
+    "device_fn_firmware_update",
+    "device_fn_telemetry_push",
+    "file_share_finance",
+    "iot_hub_controller",
+    "print_server",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:C1:14:25:60:6F:F5|TLSv1.2",
+    "macOS-14|MAC:A9:28:E6:BD:2F:61|TLSv1.3"
+   ]
+  },
+  "user_0084": {
+   "cold_start": false,
+   "hour_mean": 11.011111111111111,
+   "hour_std": 2.1395687952551627,
+   "dur_mean": 43.14491999960009,
+   "dur_std": 10.08329725446868,
+   "known_resources": [
+    "admin_panel_billing",
+    "device_fn_firmware_update",
+    "financial_system_erp",
+    "port_1883_mqtt"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:26:09:0F:CF:6C:12|HTTPS",
+    "iOS-18|MAC:7A:A4:90:C2:EE:B7|SSHv2"
+   ]
+  },
+  "user_0085": {
+   "cold_start": false,
+   "hour_mean": 14.591185897435896,
+   "hour_std": 2.288464761369046,
+   "dur_mean": 58.58177959389763,
+   "dur_std": 17.959816811953925,
+   "known_resources": [
+    "admin_panel_iam",
+    "device_fn_firmware_update",
+    "device_fn_telemetry_push",
+    "file_share_finance",
+    "source_repo_backend",
+    "vpn_gateway_1",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:4A:08:85:D5:97:4E|TLSv1.2"
+   ]
+  },
+  "user_0086": {
+   "cold_start": false,
+   "hour_mean": 18.06047619047619,
+   "hour_std": 1.8822342736242643,
+   "dur_mean": 39.690246638484766,
+   "dur_std": 10.492838735124497,
+   "known_resources": [
+    "api_gateway_payments",
+    "device_fn_reboot",
+    "financial_system_erp",
+    "port_22_ssh",
+    "port_3389_rdp",
+    "port_445_smb",
+    "source_repo_frontend",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:D3:46:76:22:4D:04|TLSv1.2",
+    "macOS-14|MAC:47:FA:5E:1E:11:26|TLSv1.3"
+   ]
+  },
+  "user_0087": {
+   "cold_start": false,
+   "hour_mean": 9.755284552845529,
+   "hour_std": 2.144071248052789,
+   "dur_mean": 57.307804293801375,
+   "dur_std": 16.225691025209656,
+   "known_resources": [
+    "device_fn_firmware_update",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "file_share_hr",
+    "iot_hub_controller",
+    "port_3389_rdp",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "Android-15|MAC:92:08:DC:5B:36:31|HTTPS",
+    "macOS-14|MAC:7B:62:81:B5:88:CB|TLSv1.3"
+   ]
+  },
+  "user_0088": {
+   "cold_start": false,
+   "hour_mean": 15.036021505376345,
+   "hour_std": 2.467283108991176,
+   "dur_mean": 29.090524661256655,
+   "dur_std": 7.949922140926248,
+   "known_resources": [
+    "device_fn_firmware_update",
+    "file_share_eng",
+    "file_share_finance",
+    "port_22_ssh"
+   ],
+   "known_devices": [
+    "Android-15|MAC:2E:CB:BA:05:7A:54|HTTPS",
+    "Android-15|MAC:F3:1C:04:57:2A:FF|MQTTv5",
+    "RTOS-edge-fw2.3|MAC:A9:30:15:75:6C:F3|SSHv2"
+   ]
+  },
+  "user_0089": {
+   "cold_start": false,
+   "hour_mean": 11.823049645390073,
+   "hour_std": 1.416617872951223,
+   "dur_mean": 52.51841737133263,
+   "dur_std": 14.506076472571088,
+   "known_resources": [
+    "admin_panel_iam",
+    "crm_system",
+    "db_prod_orders",
+    "file_share_hr",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:28:B1:1B:32:DF:76|TLSv1.3",
+    "Windows11-x64|MAC:99:53:7B:C7:A9:C4|TLSv1.2"
+   ]
+  },
+  "user_0090": {
+   "cold_start": false,
+   "hour_mean": 14.482750582750583,
+   "hour_std": 2.5037025888302678,
+   "dur_mean": 54.142671174491284,
+   "dur_std": 16.774919842614455,
+   "known_resources": [
+    "admin_panel_billing",
+    "device_fn_telemetry_push",
+    "financial_system_erp",
+    "iot_hub_controller",
+    "source_repo_frontend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "macOS-14|MAC:C2:2B:97:7E:25:2A|SSHv2",
+    "macOS-14|MAC:C2:4E:C7:A2:B8:36|TLSv1.3"
+   ]
+  },
+  "user_0091": {
+   "cold_start": false,
+   "hour_mean": 10.859294871794873,
+   "hour_std": 3.0606441528377615,
+   "dur_mean": 26.87591742252985,
+   "dur_std": 8.369694212972616,
+   "known_resources": [
+    "db_analytics",
+    "iot_hub_controller",
+    "source_repo_backend",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:D3:C6:2B:7C:56:C2|TLSv1.2",
+    "Windows11-x64|MAC:0D:2D:B5:2F:A6:C5|TLSv1.3",
+    "Windows11-x64|MAC:F6:42:00:DC:D7:BD|TLSv1.3"
+   ]
+  },
+  "user_0092": {
+   "cold_start": false,
+   "hour_mean": 15.339655172413792,
+   "hour_std": 2.9097182523154648,
+   "dur_mean": 34.11168665337506,
+   "dur_std": 8.393516279935039,
+   "known_resources": [
+    "api_gateway_orders",
+    "api_gateway_payments",
+    "device_fn_telemetry_push",
+    "financial_system_erp",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:AA:C2:A8:E1:AB:DC|HTTPS",
+    "macOS-14|MAC:FD:64:EA:36:45:9B|TLSv1.3"
+   ]
+  },
+  "user_0093": {
+   "cold_start": false,
+   "hour_mean": 15.48767507002801,
+   "hour_std": 2.7259204825764662,
+   "dur_mean": 30.471903163666433,
+   "dur_std": 8.5482627365375,
+   "known_resources": [
+    "api_gateway_orders",
+    "email_server",
+    "port_1883_mqtt",
+    "port_445_smb",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:C0:8F:C9:BA:3A:66|HTTPS"
+   ]
+  },
+  "user_0094": {
+   "cold_start": false,
+   "hour_mean": 12.590860215053764,
+   "hour_std": 2.4230598909982386,
+   "dur_mean": 48.622212287385814,
+   "dur_std": 16.33381102260956,
+   "known_resources": [
+    "api_gateway_orders",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "port_445_smb",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:FF:47:9B:7B:81:4E|MQTTv5",
+    "iOS-18|MAC:25:E5:F5:CD:D6:12|SSHv2"
+   ]
+  },
+  "user_0095": {
+   "cold_start": false,
+   "hour_mean": 16.491469816272964,
+   "hour_std": 2.934956160450144,
+   "dur_mean": 38.33796640801597,
+   "dur_std": 10.1723983571748,
+   "known_resources": [
+    "crm_system",
+    "file_share_finance",
+    "port_22_ssh",
+    "port_3389_rdp",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:C8:ED:4D:B0:0C:F7|TLSv1.3",
+    "iOS-18|MAC:36:05:32:84:71:71|MQTTv5"
+   ]
+  },
+  "user_0096": {
+   "cold_start": false,
+   "hour_mean": 15.488932291666668,
+   "hour_std": 1.9029300947514385,
+   "dur_mean": 15.538552515511762,
+   "dur_std": 4.393257393939155,
+   "known_resources": [
+    "admin_panel_iam",
+    "device_fn_telemetry_push",
+    "financial_system_erp",
+    "print_server",
+    "source_repo_frontend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:E7:A3:22:99:16:3A|TLSv1.3",
+    "Ubuntu-22.04|MAC:37:54:7C:59:51:A9|HTTPS"
+   ]
+  },
+  "user_0097": {
+   "cold_start": false,
+   "hour_mean": 12.26186440677966,
+   "hour_std": 1.6329933097072096,
+   "dur_mean": 29.4184544102086,
+   "dur_std": 8.942204630543207,
+   "known_resources": [
+    "admin_panel_iam",
+    "crm_system",
+    "email_server",
+    "file_share_hr",
+    "port_1883_mqtt",
+    "source_repo_frontend",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:6D:69:8E:20:34:5F|SSHv2"
+   ]
+  },
+  "user_0098": {
+   "cold_start": false,
+   "hour_mean": 13.589166666666667,
+   "hour_std": 2.552517727933036,
+   "dur_mean": 34.87367018120938,
+   "dur_std": 9.056631145011178,
+   "known_resources": [
+    "crm_system",
+    "db_prod_customers",
+    "device_fn_firmware_update",
+    "email_server",
+    "port_1883_mqtt",
+    "port_22_ssh",
+    "ticketing_system",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Android-15|MAC:58:98:2B:44:A0:3C|TLSv1.2",
+    "Ubuntu-22.04|MAC:3B:5D:BF:48:C6:D6|HTTPS"
+   ]
+  },
+  "user_0099": {
+   "cold_start": false,
+   "hour_mean": 15.485714285714286,
+   "hour_std": 2.080981954990646,
+   "dur_mean": 44.22763617772636,
+   "dur_std": 13.104890888487596,
+   "known_resources": [
+    "api_gateway_orders",
+    "db_analytics",
+    "db_prod_orders",
+    "device_fn_reboot",
+    "financial_system_erp",
+    "source_repo_frontend",
+    "ticketing_system",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:F8:45:63:C4:FD:D1|MQTTv5",
+    "iOS-18|MAC:E3:FA:55:2A:0F:70|SSHv2"
+   ]
+  },
+  "user_0100": {
+   "cold_start": false,
+   "hour_mean": 15.60487804878049,
+   "hour_std": 1.586226496640687,
+   "dur_mean": 38.04631989229699,
+   "dur_std": 12.34669776279945,
+   "known_resources": [
+    "crm_system",
+    "db_prod_customers",
+    "device_fn_firmware_update",
+    "device_fn_telemetry_push",
+    "financial_system_erp",
+    "iot_hub_controller",
+    "port_1883_mqtt",
+    "print_server"
+   ],
+   "known_devices": [
+    "Android-15|MAC:15:E1:6F:D9:34:7E|SSHv2",
+    "Android-15|MAC:23:75:C1:C5:43:37|TLSv1.3",
+    "Windows11-x64|MAC:E6:86:B2:2C:E0:3C|TLSv1.2"
+   ]
+  },
+  "user_0101": {
+   "cold_start": false,
+   "hour_mean": 15.72114093959731,
+   "hour_std": 2.3059921868335866,
+   "dur_mean": 34.90593231365486,
+   "dur_std": 9.255637167811335,
+   "known_resources": [
+    "admin_panel_iam",
+    "crm_system",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "file_share_finance"
+   ],
+   "known_devices": [
+    "Android-15|MAC:56:A5:95:94:88:30|TLSv1.2",
+    "iOS-18|MAC:1E:8D:40:43:7F:4A|SSHv2"
+   ]
+  },
+  "user_0102": {
+   "cold_start": false,
+   "hour_mean": 11.13822463768116,
+   "hour_std": 1.7505982546974292,
+   "dur_mean": 47.73567432515326,
+   "dur_std": 15.065080881975756,
+   "known_resources": [
+    "api_gateway_payments",
+    "crm_system",
+    "email_server",
+    "port_22_ssh",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:8E:BC:E8:F9:A7:01|TLSv1.3"
+   ]
+  },
+  "user_0103": {
+   "cold_start": false,
+   "hour_mean": 12.987673611111111,
+   "hour_std": 2.390030762472589,
+   "dur_mean": 19.257767606623833,
+   "dur_std": 5.23595358784707,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_orders",
+    "api_gateway_payments",
+    "device_fn_reboot",
+    "financial_system_erp",
+    "source_repo_backend",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Android-15|MAC:03:47:E1:54:75:27|HTTPS",
+    "Android-15|MAC:F8:AF:18:17:32:EB|TLSv1.3"
+   ]
+  },
+  "user_0104": {
+   "cold_start": false,
+   "hour_mean": 12.093548387096773,
+   "hour_std": 1.74207378785164,
+   "dur_mean": 57.18856713808624,
+   "dur_std": 16.778816862088956,
+   "known_resources": [
+    "api_gateway_orders",
+    "db_analytics",
+    "db_prod_orders",
+    "port_22_ssh",
+    "port_445_smb"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:9C:77:DB:2E:30:00|TLSv1.2",
+    "Windows11-x64|MAC:B8:80:2A:BE:54:1A|MQTTv5"
+   ]
+  },
+  "user_0105": {
+   "cold_start": false,
+   "hour_mean": 14.161419753086419,
+   "hour_std": 2.092807303577497,
+   "dur_mean": 51.47071043536043,
+   "dur_std": 16.02353923968678,
+   "known_resources": [
+    "device_fn_reboot",
+    "file_share_hr",
+    "port_445_smb",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:43:F4:24:75:C4:2D|TLSv1.3",
+    "Windows11-x64|MAC:A0:BC:99:46:C3:44|TLSv1.2"
+   ]
+  },
+  "user_0106": {
+   "cold_start": false,
+   "hour_mean": 11.34886731391586,
+   "hour_std": 2.6433120091367637,
+   "dur_mean": 40.69516370539287,
+   "dur_std": 12.177903485892404,
+   "known_resources": [
+    "db_prod_orders",
+    "port_1883_mqtt",
+    "port_22_ssh",
+    "source_repo_backend",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:33:47:3F:C4:B3:DB|SSHv2"
+   ]
+  },
+  "user_0107": {
+   "cold_start": false,
+   "hour_mean": 12.754285714285714,
+   "hour_std": 2.951255479061667,
+   "dur_mean": 18.938699180041123,
+   "dur_std": 5.534885453306954,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_orders",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "file_share_hr",
+    "port_1883_mqtt",
+    "port_445_smb",
+    "ticketing_system"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:C8:97:1B:7A:FD:C5|TLSv1.3"
+   ]
+  },
+  "user_0108": {
+   "cold_start": false,
+   "hour_mean": 13.773809523809526,
+   "hour_std": 1.5598959782507815,
+   "dur_mean": 20.725575707201344,
+   "dur_std": 6.059700058780359,
+   "known_resources": [
+    "crm_system",
+    "db_prod_orders",
+    "email_server",
+    "iot_hub_controller",
+    "source_repo_backend",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:08:22:07:86:6E:14|TLSv1.3",
+    "iOS-18|MAC:92:D4:D8:CD:2A:4E|SSHv2"
+   ]
+  },
+  "user_0109": {
+   "cold_start": false,
+   "hour_mean": 12.731904761904763,
+   "hour_std": 2.400040190953669,
+   "dur_mean": 47.83925527759664,
+   "dur_std": 15.44863268348153,
+   "known_resources": [
+    "crm_system",
+    "device_fn_firmware_update",
+    "email_server",
+    "port_1883_mqtt",
+    "port_22_ssh",
+    "port_3389_rdp"
+   ],
+   "known_devices": [
+    "Android-15|MAC:1C:9E:59:3D:06:46|TLSv1.3",
+    "RTOS-edge-fw2.3|MAC:7A:1D:7D:2C:DE:3B|MQTTv5"
+   ]
+  },
+  "user_0110": {
+   "cold_start": false,
+   "hour_mean": 13.102482269503543,
+   "hour_std": 1.7312347201000104,
+   "dur_mean": 54.89285289549456,
+   "dur_std": 17.158231919594005,
+   "known_resources": [
+    "api_gateway_payments",
+    "db_prod_customers",
+    "db_prod_orders",
+    "device_fn_firmware_update",
+    "file_share_hr",
+    "port_1883_mqtt"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:20:86:27:FE:E9:B8|TLSv1.3",
+    "iOS-18|MAC:55:BC:50:82:34:3B|TLSv1.2"
+   ]
+  },
+  "user_0111": {
+   "cold_start": false,
+   "hour_mean": 14.561146496815288,
+   "hour_std": 3.0892455378875883,
+   "dur_mean": 15.305439587079027,
+   "dur_std": 4.695388903817802,
+   "known_resources": [
+    "db_analytics",
+    "db_prod_orders",
+    "email_server",
+    "file_share_finance",
+    "iot_hub_controller",
+    "port_22_ssh"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:1A:5B:72:17:CD:23|MQTTv5",
+    "macOS-14|MAC:D5:A3:8A:27:BE:3D|HTTPS"
+   ]
+  },
+  "user_0112": {
+   "cold_start": false,
+   "hour_mean": 14.201111111111112,
+   "hour_std": 1.5909485615126187,
+   "dur_mean": 39.6926680956641,
+   "dur_std": 12.255585474415932,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_orders",
+    "crm_system",
+    "file_share_hr",
+    "port_1883_mqtt",
+    "ticketing_system",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Android-15|MAC:FC:64:7D:4D:03:D1|TLSv1.3",
+    "macOS-14|MAC:B1:04:AB:00:C0:9D|TLSv1.3"
+   ]
+  },
+  "user_0113": {
+   "cold_start": false,
+   "hour_mean": 13.608870967741938,
+   "hour_std": 2.475167943426392,
+   "dur_mean": 41.681351745764374,
+   "dur_std": 13.451560266726728,
+   "known_resources": [
+    "admin_panel_billing",
+    "file_share_finance",
+    "print_server",
+    "source_repo_backend"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:42:79:95:85:A1:C9|SSHv2",
+    "iOS-18|MAC:2B:30:44:C9:26:1F|MQTTv5"
+   ]
+  },
+  "user_0114": {
+   "cold_start": false,
+   "hour_mean": 18.62424242424242,
+   "hour_std": 4.485727372313971,
+   "dur_mean": 59.68353161552317,
+   "dur_std": 15.572807707327259,
+   "known_resources": [
+    "db_analytics",
+    "db_prod_customers",
+    "db_prod_orders",
+    "device_fn_reboot",
+    "port_445_smb",
+    "source_repo_backend",
+    "source_repo_frontend",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:9B:14:6E:A7:4B:2E|TLSv1.2",
+    "macOS-14|MAC:E7:9D:ED:87:3D:2E|TLSv1.2"
+   ]
+  },
+  "user_0115": {
+   "cold_start": false,
+   "hour_mean": 11.506666666666666,
+   "hour_std": 2.0750804276851547,
+   "dur_mean": 58.121516850604436,
+   "dur_std": 17.0962734477,
+   "known_resources": [
+    "email_server",
+    "iot_hub_controller",
+    "port_1883_mqtt",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "iOS-18|MAC:34:47:3E:06:1F:71|TLSv1.2"
+   ]
+  },
+  "user_0116": {
+   "cold_start": false,
+   "hour_mean": 19.462916666666665,
+   "hour_std": 2.267643706960133,
+   "dur_mean": 22.524632752139105,
+   "dur_std": 7.04984671824149,
+   "known_resources": [
+    "admin_panel_iam",
+    "file_share_eng",
+    "port_22_ssh",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "Ubuntu-22.04|MAC:3E:15:EC:19:56:DD|MQTTv5"
+   ]
+  },
+  "user_0117": {
+   "cold_start": false,
+   "hour_mean": 10.724747474747474,
+   "hour_std": 2.6018060007402966,
+   "dur_mean": 41.487853674987335,
+   "dur_std": 13.134493452691173,
+   "known_resources": [
+    "admin_panel_iam",
+    "api_gateway_payments",
+    "db_analytics",
+    "db_prod_orders",
+    "device_fn_firmware_update",
+    "source_repo_frontend"
+   ],
+   "known_devices": [
+    "RTOS-edge-fw2.3|MAC:97:FF:D2:F5:1F:2C|SSHv2"
+   ]
+  },
+  "user_0118": {
+   "cold_start": false,
+   "hour_mean": 14.683980582524272,
+   "hour_std": 2.0006561047047713,
+   "dur_mean": 50.58055405797325,
+   "dur_std": 14.498885087008865,
+   "known_resources": [
+    "device_fn_telemetry_push",
+    "email_server",
+    "file_share_hr",
+    "financial_system_erp",
+    "iot_hub_controller",
+    "port_3389_rdp",
+    "port_445_smb",
+    "vpn_gateway_2"
+   ],
+   "known_devices": [
+    "Windows11-x64|MAC:F1:B7:77:51:33:7E|TLSv1.2",
+    "iOS-18|MAC:8A:5C:0D:A3:70:0F|SSHv2"
+   ]
+  },
+  "user_0119": {
+   "cold_start": false,
+   "hour_mean": 19.051593137254905,
+   "hour_std": 1.841132544943823,
+   "dur_mean": 54.81755906600656,
+   "dur_std": 16.629132843509478,
+   "known_resources": [
+    "admin_panel_billing",
+    "crm_system",
+    "db_analytics",
+    "device_fn_reboot",
+    "device_fn_telemetry_push",
+    "vpn_gateway_1"
+   ],
+   "known_devices": [
+    "Android-15|MAC:0E:B4:48:60:FC:9E|TLSv1.2",
+    "iOS-18|MAC:13:2E:1C:77:70:0A|HTTPS"
+   ]
+  }
+ },
+ "population_fallbacks": {
+  "edge_device": {
+   "hour_mean": 11.955943845486573,
+   "hour_std": 6.902789065946095,
+   "dur_mean": 2.9925008716091477,
+   "dur_std": 1.5704805729582396
+  },
+  "service_account": {
+   "hour_mean": 6.629584711503124,
+   "hour_std": 5.324213080336538,
+   "dur_mean": 6.198821525774373,
+   "dur_std": 2.709784430444766
+  },
+  "user": {
+   "hour_mean": 13.802854034683563,
+   "hour_std": 3.6187402749822986,
+   "dur_mean": 38.05558292941719,
+   "dur_std": 18.29419724413765
+  }
+ }
+}
