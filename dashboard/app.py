@@ -2,6 +2,20 @@
 SOC Analyst Dashboard - Behavioral Anomaly Detection
 =======================================================
 Run with: streamlit run app.py
+
+Two classes of view, deliberately separated:
+
+  PRODUCTION  (Alert Queue, Entity Investigation) -- shows only what a real
+              console can see. The problem statement hides the label at
+              inference, so no ground truth appears here unless the evaluation
+              overlay is explicitly switched on in the sidebar.
+
+  EVALUATION  (Model Health, Robustness) -- offline scoring views. These use
+              held-out ground truth by design and are labelled as such.
+
+Analyst verdicts (Accept / Reject) are the only feedback signal available in
+production. They persist to reports/triage_feedback.json so they survive a
+reload and can be consumed by a retraining job.
 """
 
 import streamlit as st
@@ -32,9 +46,6 @@ alerts, full_log = load_data()
 # ---------------------------------------------------------------------------
 # ANALYST TRIAGE STATE
 # ---------------------------------------------------------------------------
-# Analyst verdicts are the only ground truth available in production. They are
-# held in session_state and mirrored to disk so a verdict survives a page
-# reload (and so the feedback can be consumed by a retraining job).
 TRIAGE_PATH = os.path.join(REPORTS_DIR, "triage_feedback.json")
 
 
@@ -47,8 +58,11 @@ def load_triage():
 
 
 def save_triage(state):
-    with open(TRIAGE_PATH, "w") as f:
-        json.dump(state, f, indent=2)
+    try:
+        with open(TRIAGE_PATH, "w") as f:
+            json.dump(state, f, indent=2)
+    except OSError:
+        pass  # read-only deploy (e.g. Streamlit Cloud): keep session state only
 
 
 if "triage" not in st.session_state:
@@ -71,7 +85,7 @@ def clear_verdict(session_id):
 
 
 triage = st.session_state.triage
-# Entities the analyst has explicitly cleared -> benign-drift allowlist.
+# Entities an analyst has explicitly cleared -> benign-drift allowlist.
 allowlisted_entities = {
     v["entity_id"] for v in triage.values() if v["verdict"] == "false_positive"
 }
@@ -85,17 +99,18 @@ with st.sidebar:
         "Ground-truth overlay",
         value=False,
         help="Evaluation aid only. The problem statement hides the label at "
-             "inference, so a production console cannot show it. Leave this "
-             "off for the analyst view; switch it on to score the model.",
+             "inference, so a production console cannot show it. Leave off for "
+             "the analyst view; switch on to score the model.",
     )
     if show_truth:
         st.warning(
-            "**Evaluation mode.** Labels shown below come from the synthetic "
-            "generator's held-out ground truth. This overlay does not exist "
-            "in production."
+            "**Evaluation mode.** Labels shown in the Alert Queue and Entity "
+            "Investigation tabs come from the generator's held-out ground "
+            "truth. This overlay does not exist in production."
         )
     else:
         st.success("**Production view.** No ground-truth labels in use.")
+
     st.divider()
     st.caption(f"Analyst verdicts recorded: **{len(triage)}**")
     if triage and st.button("Reset all verdicts", use_container_width=True):
@@ -106,10 +121,11 @@ with st.sidebar:
 st.title("🛡️ Behavioral Anomaly Detection — Analyst Console")
 st.caption("Ranked alert queue with explainable risk scores, entity history, and cold-start / drift awareness")
 
-# ---- Top-line KPIs (production view: driven by analyst verdicts, not labels) ----
+# ---- Top-line KPIs: driven by analyst verdicts, not by labels ----
 n_confirmed = sum(1 for v in triage.values() if v["verdict"] == "confirmed")
 n_dismissed = sum(1 for v in triage.values() if v["verdict"] == "false_positive")
-n_open = len(alerts) - len([s for s in triage if s in set(alerts["session_id"])])
+queued_ids = set(alerts["session_id"])
+n_open = len(alerts) - len([s for s in triage if s in queued_ids])
 
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Alerts in queue", len(alerts))
@@ -118,18 +134,18 @@ col3.metric("Confirmed incidents", n_confirmed, help="Analyst-accepted alerts")
 col4.metric("Entities monitored", full_log["entity_id"].nunique())
 
 if show_truth:
-    precision_top = (alerts["label"] != "normal").mean()
+    n_true = int((alerts["label"] != "normal").sum())
     st.info(
-        f"**Ground-truth overlay** — {int((alerts['label'] != 'normal').sum())} "
-        f"of {len(alerts)} queued alerts are true anomalies "
-        f"(precision {precision_top:.1%}). Evaluation metric, not a console feature."
+        f"**Ground-truth overlay** — {n_true} of {len(alerts)} queued alerts are "
+        f"true anomalies (precision {(alerts['label'] != 'normal').mean():.1%}). "
+        "Evaluation metric, not a console feature."
     )
 
 st.divider()
 
 tab1, tab2, tab3, tab4 = st.tabs([
     "🚨 Alert Queue", "🔍 Entity Investigation",
-    "📊 Correlations & Model Health", "🧪 Robustness (Cold-start & Drift)"])
+    "📊 Model Health (eval)", "🧪 Robustness (Cold-start & Drift)"])
 
 # ---------------------------------------------------------------------------
 with tab1:
@@ -144,9 +160,7 @@ with tab1:
         )
     with f2:
         status = st.selectbox(
-            "Triage status",
-            ["Awaiting triage", "Confirmed", "Dismissed", "All"],
-        )
+            "Triage status", ["Awaiting triage", "Confirmed", "Dismissed", "All"])
 
     filtered = alerts[alerts["predicted_label"].isin(attack_types)] if attack_types else alerts
     verdict_of = filtered["session_id"].map(lambda s: triage.get(s, {}).get("verdict"))
@@ -160,9 +174,9 @@ with tab1:
 
     if n_dismissed:
         st.caption(
-            f"🔁 **Feedback loop active** — {n_dismissed} dismissed alert(s) have "
-            f"added {len(allowlisted_entities)} entit(y/ies) to the benign-drift "
-            f"allowlist. Their remaining queued alerts are down-ranked below."
+            f"🔁 **Feedback loop active** — {n_dismissed} dismissed alert(s) added "
+            f"{len(allowlisted_entities)} entit(y/ies) to the benign-drift allowlist. "
+            "Their remaining queued alerts are down-ranked below."
         )
 
     if filtered.empty:
@@ -220,16 +234,15 @@ with tab1:
                         on_click=clear_verdict, args=(sid,),
                     )
 
-    # ---- What the feedback is for ----
     if triage:
         with st.expander(f"Analyst feedback log ({len(triage)} verdicts) — retraining input"):
             fb = pd.DataFrame.from_dict(triage, orient="index").reset_index(names="session_id")
             st.dataframe(fb, hide_index=True, use_container_width=True)
             st.caption(
-                "Written to `reports/triage_feedback.json`. Confirmed incidents become "
-                "positive training examples; dismissals become negatives and allowlist "
-                "the entity's current behavioural baseline, which is how a real SOC "
-                "stops re-alerting on legitimate change."
+                "Confirmed incidents become positive training examples; dismissals "
+                "become negatives and allowlist the entity's current behavioural "
+                "baseline, which is how a real SOC stops re-alerting on legitimate "
+                "change."
             )
             st.download_button(
                 "Download feedback (JSON)",
@@ -250,49 +263,76 @@ with tab2:
         st.markdown(f"**Entity type:** {ent_hist['entity_type'].iloc[0]}")
         st.markdown(f"**Distinct resources accessed:** {ent_hist['resource_accessed'].nunique()}")
         st.markdown(f"**Distinct devices seen:** {ent_hist['device_fingerprint'].nunique()}")
+        st.markdown(f"**Failed auth attempts (all time):** {int(ent_hist['is_failure'].sum())}")
         is_cold = ent_hist["is_cold_start_entity"].iloc[-1] == 1
-        st.markdown(f"**Cold-start status:** {'⚠️ Yes — limited history, scored against population baseline' if is_cold else '✅ Established profile'}")
+        st.markdown(
+            "**Cold-start status:** "
+            + ("⚠️ Yes — limited history, scored against population baseline"
+               if is_cold else "✅ Established profile"))
+
+    # Colour by ground truth ONLY under the evaluation overlay. In the
+    # production view, colour encodes an observable signal instead.
+    if show_truth:
+        colour, colour_map, note = "label", {"normal": "lightblue"}, "colour = ground truth (eval overlay)"
+    else:
+        colour, colour_map, note = "auth_result", None, "colour = auth result (observable at inference)"
 
     with c2:
-        fig = px.scatter(
-            ent_hist, x="timestamp", y="hour_of_day", color="label",
-            title="Session timing pattern (color = ground truth label)",
-            color_discrete_map={"normal": "lightblue"},
-        )
+        fig = px.scatter(ent_hist, x="timestamp", y="hour_of_day", color=colour,
+                         color_discrete_map=colour_map,
+                         title=f"Session timing pattern — {note}")
         st.plotly_chart(fig, use_container_width=True)
 
-    st.markdown("**Resource access timeline**")
-    fig2 = px.scatter(
-        ent_hist, x="timestamp", y="resource_accessed", color="label",
-        color_discrete_map={"normal": "lightblue"},
-    )
+    st.markdown(f"**Resource access timeline** — {note}")
+    fig2 = px.scatter(ent_hist, x="timestamp", y="resource_accessed", color=colour,
+                      color_discrete_map=colour_map)
     st.plotly_chart(fig2, use_container_width=True)
 
 # ---------------------------------------------------------------------------
 with tab3:
-    st.subheader("Feature Correlations with Anomaly Outcomes")
+    st.subheader("Model Health — offline evaluation")
+    st.caption("This tab intentionally uses held-out ground truth. It is a "
+               "model-scoring view, not part of the production console.")
+
     numeric_feats = [
         "geo_velocity_kmh", "time_since_last_session_min", "hour_deviation_zscore",
         "duration_zscore", "distinct_entities_per_ip_1h", "failed_auth_count_ip_1h",
         "failed_auth_count_entity_24h", "command_seq_length",
+        "novel_resources_entity_1h", "offhours_access_count_entity_7d",
+        "resource_seq_surprise",
     ]
-    full_log["is_anomaly"] = (full_log["label"] != "normal").astype(int)
-    corr = full_log[numeric_feats + ["is_anomaly"]].corr()["is_anomaly"].drop("is_anomaly").sort_values()
-    fig3 = px.bar(
-        corr, orientation="h", title="Correlation of engineered features with anomaly label",
-        labels={"value": "Correlation", "index": "Feature"},
-    )
+    present = [f for f in numeric_feats if f in full_log.columns]
+    scored = full_log.copy()
+    scored["is_anomaly"] = (scored["label"] != "normal").astype(int)
+    corr = (scored[present + ["is_anomaly"]].corr()["is_anomaly"]
+            .drop("is_anomaly").sort_values())
+    fig3 = px.bar(corr, orientation="h",
+                  title="Correlation of engineered features with anomaly label",
+                  labels={"value": "Correlation", "index": "Feature"})
     st.plotly_chart(fig3, use_container_width=True)
 
     st.subheader("Label Distribution (log scale)")
-    label_counts = full_log["label"].value_counts()
-    fig4 = px.bar(label_counts, log_y=True, title="Session counts by label (log scale — note extreme imbalance)")
+    fig4 = px.bar(scored["label"].value_counts(), log_y=True,
+                  title="Session counts by label (log scale — note extreme imbalance)")
     st.plotly_chart(fig4, use_container_width=True)
 
+    mpath = os.path.join(REPORTS_DIR, "hybrid_metrics.json")
+    if os.path.exists(mpath):
+        with open(mpath) as f:
+            rep = json.load(f).get("classification_report", {})
+        rows = [{"Class": k, "Precision": round(v["precision"], 2),
+                 "Recall": round(v["recall"], 2), "F1": round(v["f1-score"], 2),
+                 "Support": int(v["support"])}
+                for k, v in rep.items()
+                if isinstance(v, dict) and "f1-score" in v and not k.endswith("avg")]
+        if rows:
+            st.subheader("Per-class detection (held-out window, ML + rule layer)")
+            st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
+
     st.info(
-        "Model: XGBoost multiclass classifier, time-based train/test split (last 25% of days held out), "
-        "inverse-frequency sample weighting for class imbalance. See reports/model_metrics.json for full "
-        "classification report and precision-at-alert-budget figures."
+        "XGBoost multiclass over 25 causal features, time-based split (last 25% of "
+        "days held out), inverse-frequency sample weighting, plus a physics rule "
+        "layer for impossible travel. Full figures in reports/evaluation_scorecard.json."
     )
 
 # ---------------------------------------------------------------------------
@@ -338,11 +378,5 @@ with tab4:
             })
             st.dataframe(comp, hide_index=True, use_container_width=True)
             st.caption("Deviation for drifted entities is comparable to entities that never "
-                       "changed — the rolling profile absorbed the new behaviour.")
-
-        ins = rob.get("insider_drift_edge_case", {})
-        if ins.get("sessions"):
-            st.markdown("#### ⚖️ Insider drift (ambiguous edge case)")
-            st.write(f"Flag rate: **{ins['flag_rate_at_1pct_budget']:.0%}** "
-                     f"across {ins['sessions']} sessions")
-            st.caption(ins.get("note", ""))
+                       "changed, which is evidence the baseline re-learned rather than "
+                       "merely being insensitive.")
